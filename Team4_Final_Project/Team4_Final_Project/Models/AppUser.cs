@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using Team4_Final_Project.Models;
 
 namespace Team_4_Final_Project.Models
 {
