@@ -24,8 +24,7 @@ namespace Team_4_Final_Project.Models
         [Display(Name = "Zipcode")]
         public String Zipcode { get; set; }
         [Display(Name = "Phone Number")]
-        public String PhoneNumber { get; set; }
-        [Display(Name = "Birthday")]
+        
         public DateTime Birthday { get; set; }
 
         [Display(Name = "Is Active")]
