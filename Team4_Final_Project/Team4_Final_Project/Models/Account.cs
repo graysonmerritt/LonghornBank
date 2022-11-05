@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
-using Team_4_Final_Project.Models;
 // no differnce between checking and savings
 public enum AccountType { Checking, Savings, IRA}
 namespace Team4_Final_Project.Models
