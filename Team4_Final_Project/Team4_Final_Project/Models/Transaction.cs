@@ -6,5 +6,7 @@
         public Int32 TransactionID { get; set; }
 
         public Account Account { get; set; }
+
+        public List<Dispute> Disputes { get; set; }
     }
 }

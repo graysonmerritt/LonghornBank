@@ -61,6 +61,12 @@ namespace Team4_Final_Project.Utilities
                 //TODO: Update any fields that you added to appuser
                 //FirstName is included as an example
                 dbUser.FirstName = aum.User.FirstName;
+                dbUser.LastName = aum.User.LastName;
+                dbUser.Street = aum.User.Street;
+                dbUser.City = aum.User.City;
+                dbUser.State = aum.User.State;
+                dbUser.Zipcode = aum.User.Zipcode;
+                dbUser.Birthday = aum.User.Birthday;
 
                 //update the database
                 _context.Update(dbUser);

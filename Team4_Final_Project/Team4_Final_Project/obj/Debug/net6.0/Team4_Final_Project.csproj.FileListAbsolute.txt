@@ -62,3 +62,8 @@ C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Pro
 C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\obj\Debug\net6.0\Team4_Final_Project.pdb
 C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\obj\Debug\net6.0\Team4_Final_Project.genruntimeconfig.cache
 C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\obj\Debug\net6.0\ref\Team4_Final_Project.dll
+C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\bin\Debug\net6.0\libman.json
+C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\bin\Debug\net6.0\Team4_Final_Project.staticwebassets.runtime.json
+C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\obj\Debug\net6.0\Team4_Final_Project.MvcApplicationPartsAssemblyInfo.cs
