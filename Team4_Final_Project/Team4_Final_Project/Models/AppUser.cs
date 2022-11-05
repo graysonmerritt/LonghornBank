@@ -9,7 +9,7 @@ namespace Team_4_Final_Project.Models
     {
         [Display(Name = "First Name")]
         public String FirstName { get; set; }
-        [Display(Name = "Middle Initital")]
+        [Display(Name = "Middle Initial")]
         public String MiddleInitial { get; set; }
 
         [Display(Name = "Last Name")]
@@ -31,7 +31,9 @@ namespace Team_4_Final_Project.Models
         public bool IsActive { get; set; }
 
         [Display(Name = "Accounts")]
-        public Account Accounts { get; set; }
+        public List<Account> Accounts { get; set; }
+
+        public StockPortfolio StockPortfolio { get; set; }
 
     }
 }
