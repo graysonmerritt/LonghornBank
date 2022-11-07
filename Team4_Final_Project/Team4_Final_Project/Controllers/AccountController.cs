@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Reflection.Emit;
 using Team4_Final_Project.DAL;
 using Team4_Final_Project.Models;
 using Team4_Final_Project.Utilities;
@@ -55,6 +57,15 @@ namespace Team4_Final_Project.Controllers
                 //TODO: Add the rest of the custom user fields here
                 //FirstName is included as an example
                 FirstName = rvm.FirstName,
+                LastName = rvm.LastName,
+                MiddleInitial = rvm.MiddleInitial,
+                Street = rvm.Street,
+                City = rvm.City,
+                State = rvm.State,
+                Zipcode = rvm.Zipcode,
+                Birthday = rvm.Birthday
+                
+
 
             };
 

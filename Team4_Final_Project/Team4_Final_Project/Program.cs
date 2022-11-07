@@ -3,7 +3,6 @@ using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
-//TODO: Update these namespaces to match your project name
 using Team4_Final_Project.DAL;
 using Team4_Final_Project.Models;
 
@@ -13,8 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//TODO: Add database on Azure so you have a connection string
-//TODO: (For HW3 and beyond) Add a connection string here once you have created it on Azure
+
 String connectionString = "Server=tcp:fa22team4finalproject.database.windows.net,1433;Initial Catalog=fa22team4finalproject;Persist Security Info=False;User ID=MISAdmin;Password=Password123;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));

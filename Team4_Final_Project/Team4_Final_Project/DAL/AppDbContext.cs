@@ -26,7 +26,6 @@ namespace Team4_Final_Project.DAL
             base.OnModelCreating(builder);
         }
 
-        //TODO: Add Dbsets here.  Products is included as an example.  
         public DbSet<Dispute> Disputes { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Stock> Stocks { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Team4_Final_Project.Models
 {
-    public enum TransactionType { Deposit, Withdrawal, Fee}
+    public enum TransactionType { Deposit, Withdrawal, Fee, Transfer}
     // TRANSFERS ARE TWO TRANSACTIONS (one withdrawal, one deposit)
     public class Transaction
     {

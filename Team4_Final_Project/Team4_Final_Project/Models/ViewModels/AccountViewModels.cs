@@ -47,6 +47,35 @@ namespace Team4_Final_Project.Models
         public String FirstName { get; set; }
 
 
+        [Display(Name = "Middle Initial")]
+        public String MiddleInitial { get; set; }
+
+        [Required(ErrorMessage = "Last name is required.")]
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
+        
+        [Required(ErrorMessage = "Street is required.")]
+        [Display(Name = "Street")]
+        public String Street { get; set; }
+       
+        [Required(ErrorMessage = "City is required.")]
+        [Display(Name = "City")]
+        public String City { get; set; }
+
+        [Required(ErrorMessage = "State is required.")]
+        [Display(Name = "State")]
+        public String State { get; set; }
+
+        [Required(ErrorMessage = "Zipcode is required.")]
+        [Display(Name = "Zipcode")]
+        public String Zipcode { get; set; }
+
+        [Required(ErrorMessage = "Birthday is required.")]
+        [Display(Name = "Birthday")]
+        public DateTime Birthday { get; set; }
+
+        
+
         //NOTE: Here is the logic for putting in a password
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
