@@ -29,7 +29,7 @@ namespace Team4_Final_Project.DAL
         public DbSet<Dispute> Disputes { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Stock> Stocks { get; set; }
-        public DbSet<StockPortfolio> StockPortsfolios { get; set; }
+        public DbSet<StockPortfolio> StockPortfolios { get; set; }
         public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<StockType> StockTypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }

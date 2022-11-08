@@ -63,7 +63,7 @@ namespace Team4_Final_Project.Seeding
                     City = "Houston",
                     Zipcode = "23456",
                     State = "Texas",
-                    Birthday = new DateTime(2001, 31, 12, 9, 15, 0),
+                    Birthday = new DateTime(2001, 12, 31, 9, 15, 0),
                     IsActive = true
 
 
@@ -92,7 +92,7 @@ namespace Team4_Final_Project.Seeding
                     City = "Houston",
                     Zipcode = "23456",
                     State = "Texas",
-                    Birthday = new DateTime(1998, 18, 05, 9, 15, 0),
+                    Birthday = new DateTime(1998, 05, 19, 9, 15, 0),
                     IsActive = true
 
                 },
