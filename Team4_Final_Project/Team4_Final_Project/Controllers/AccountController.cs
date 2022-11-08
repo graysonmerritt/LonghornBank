@@ -63,7 +63,8 @@ namespace Team4_Final_Project.Controllers
                 City = rvm.City,
                 State = rvm.State,
                 Zipcode = rvm.Zipcode,
-                Birthday = rvm.Birthday
+                Birthday = rvm.Birthday,
+                IsActive = true
                 
 
 

@@ -16,6 +16,12 @@ namespace Team4_Final_Project.Seeding
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
 
+            if (await roleManager.RoleExistsAsync("Employee") == false)
+            {
+                //this code uses the role manager object to create the admin role
+                await roleManager.CreateAsync(new IdentityRole("Employee"));
+            }
+
             //if the customer role doesn't exist, add it
             if (await roleManager.RoleExistsAsync("Customer") == false)
             {
