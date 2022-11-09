@@ -139,6 +139,13 @@ namespace Team4_Final_Project.Controllers
             //they requested OR the homepage if there isn't a specific url
             if (result.Succeeded)
             {
+                // doesn't work
+                if (User.IsInRole("Customer"))
+                {
+                    // TODO: add a check to see if they have any accounts to direct them to the account managment page (index)
+                    //TODO: may be the wrong method call
+                    return RedirectToAction("Create", "Accounts");
+                }
                 //return ?? "/" means if returnUrl is null, substitute "/" (home)
                 return Redirect(returnUrl ?? "/");
             }
