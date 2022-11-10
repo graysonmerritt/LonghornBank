@@ -118,5 +118,25 @@ namespace Team4_Final_Project.Models
         public String UserName { get; set; }
         public String Email { get; set; }
         public String UserID { get; set; }
+
+        // NOTE: copied over from appuser model
+        public String FirstName { get; set; }
+        [Display(Name = "Middle Initial")]
+        public String MiddleInitial { get; set; }
+
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
+
+        [Display(Name = "Street")]
+        public String Street { get; set; }
+        [Display(Name = "City")]
+        public String City { get; set; }
+        [Display(Name = "State")]
+        public String State { get; set; }
+        [Display(Name = "Zipcode")]
+        public String Zipcode { get; set; }
+        [Display(Name = "Phone Number")]
+
+        public DateTime Birthday { get; set; }
     }
 }

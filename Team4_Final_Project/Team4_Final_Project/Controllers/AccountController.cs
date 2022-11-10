@@ -139,7 +139,7 @@ namespace Team4_Final_Project.Controllers
             //they requested OR the homepage if there isn't a specific url
             if (result.Succeeded)
             {
-                //return ?? "/" means if returnUrl is null, substitute "/" (home)
+               
                 return Redirect(returnUrl ?? "/");
             }
             else //log in was not successful
