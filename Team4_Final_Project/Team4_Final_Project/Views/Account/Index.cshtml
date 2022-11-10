@@ -1,6 +1,6 @@
-﻿@model IndexViewModel
+﻿@model RegisterViewModel
 @{
-    ViewBag.Title = "Change Account Info";
+    ViewBag.Title = "Change Password";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -9,27 +9,49 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>User Name:</dt>
-        <dd>@Model.UserName</dd>
-
-        <dt>Email:</dt>
-        <dd>@Model.Email</dd>
-        
         <dt>First Name:</dt>
         <dd>@Model.FirstName</dd>
+
+        <dt>Middle Initial:</dt>
+        <dd>@Model.MiddleInitial</dd>
 
         <dt>Last Name:</dt>
         <dd>@Model.LastName</dd>
 
-        <dt>Street:</dt>
+        <dt>Address:</dt>
         <dd>@Model.Street</dd>
 
         <dt>City:</dt>
         <dd>@Model.City</dd>
 
+        <dt>State:</dt>
+        <dd>@Model.State</dd>
+
+        <dt>Zip Code:</dt>
+        <dd>@Model.Zipcode</dd>
+
+        <dt>Phone Number:</dt>
+        <dd>@Model.PhoneNumber</dd>
+
+        <dt>Email:</dt>
+        <dd>@Model.Email</dd>
+
+
         <dt>Password:</dt>
+        @Html.ActionLink("Change your password", "ChangePassword")
+        @*
         <dd>
-            [@Html.ActionLink("Change your password", "ChangePassword")]
-        </dd>
+        [
+        @if (Model.HasPassword)
+        {
+        @Html.ActionLink("Change your password", "ChangePassword")
+        }
+        ]
+        </dd>*@
+
     </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.UserID">Edit User Information</a>
+    </div>
 </div>
+<hr />

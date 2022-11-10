@@ -39,6 +39,8 @@ namespace Team4_Final_Project.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
+        [Key]
+        public Int32 UserID { get; set; }
 
         //TODO: Add any fields that you need for creating a new user
         //First name is provided as an example
@@ -119,24 +121,5 @@ namespace Team4_Final_Project.Models
         public String Email { get; set; }
         public String UserID { get; set; }
 
-        // NOTE: copied over from appuser model
-        public String FirstName { get; set; }
-        [Display(Name = "Middle Initial")]
-        public String MiddleInitial { get; set; }
-
-        [Display(Name = "Last Name")]
-        public String LastName { get; set; }
-
-        [Display(Name = "Street")]
-        public String Street { get; set; }
-        [Display(Name = "City")]
-        public String City { get; set; }
-        [Display(Name = "State")]
-        public String State { get; set; }
-        [Display(Name = "Zipcode")]
-        public String Zipcode { get; set; }
-        [Display(Name = "Phone Number")]
-
-        public DateTime Birthday { get; set; }
     }
 }

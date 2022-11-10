@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Reflection.Emit;
+using System.Runtime.Intrinsics.Arm;
 using Team4_Final_Project.DAL;
 using Team4_Final_Project.Models;
 using Team4_Final_Project.Utilities;
@@ -134,18 +136,12 @@ namespace Team4_Final_Project.Controllers
 
             //attempt to sign the user in using the SignInManager
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
-
+          
             //if the login worked, take the user to either the url
             //they requested OR the homepage if there isn't a specific url
             if (result.Succeeded)
             {
-                // doesn't work
-                if (User.IsInRole("Customer"))
-                {
-                    // TODO: add a check to see if they have any accounts to direct them to the account managment page (index)
-                    //TODO: may be the wrong method call
-                    return RedirectToAction("Create", "Accounts");
-                }
+               
                 //return ?? "/" means if returnUrl is null, substitute "/" (home)
                 return Redirect(returnUrl ?? "/");
             }
@@ -167,6 +163,7 @@ namespace Team4_Final_Project.Controllers
         public IActionResult Index()
         {
             IndexViewModel ivm = new IndexViewModel();
+            RegisterViewModel rvm = new RegisterViewModel();
 
             //get user info
             String id = User.Identity.Name;
@@ -178,12 +175,82 @@ namespace Team4_Final_Project.Controllers
             ivm.HasPassword = true;
             ivm.UserID = user.Id;
             ivm.UserName = user.UserName;
+            rvm.FirstName = user.FirstName;
+            rvm.LastName = user.LastName;
+            rvm.MiddleInitial = user.MiddleInitial;
+            rvm.Street = user.Street;
+            rvm.City = user.City;
+            rvm.State = user.State;
+            rvm.Zipcode = user.Zipcode;
+            rvm.PhoneNumber = user.PhoneNumber;
+            rvm.Email = user.Email;
 
             //send data to the view
-            return View(ivm);
+            return View(rvm);
         }
 
+        //GET: User/Edit
+        public async Task<IActionResult> Edit(int? id)
+        {
+            String UName = User.Identity.Name;
+            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UName);
+            if (id == null)
+            {
+                return View("Error", new String[] { "Please specify the account you wish to edit!" });
+            }
+            return View(user);
+        }
 
+        //POST: User/Edit
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, AppUser appuser)
+        {
+            try
+            {
+                //var context = new Models.ApplicationDbContext();
+                //AppUser DBUser = _db.Users.Find(appuser.Id);
+                String UName = User.Identity.Name;
+                AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UName);
+                //context.Entry(appuser).State = EntityState.Modified;
+                //user.Email = appuser.Email;
+                //user.UserName = appuser.UserName;
+                if (User.IsInRole("Customer"))
+                {
+                    user.FirstName = appuser.FirstName;
+                    //appuser.FirstName = user.FirstName;
+                    appuser.LastName = user.LastName;
+                    user.MiddleInitial = appuser.MiddleInitial;
+                }
+
+
+                user.Street = appuser.Street;
+                user.City = appuser.City;
+                user.State = appuser.State;
+                user.Zipcode = appuser.Zipcode;
+                user.PhoneNumber = appuser.PhoneNumber;
+                _context.Update(user);
+                //await _db.SaveChangesAsync();
+                //user.PasswordHash = user.PasswordHash;
+                _context.SaveChanges();
+                await _context.SaveChangesAsync();
+                //var user = context.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+                //return View("Index");
+            }
+
+            catch (DbUpdateConcurrencyException)
+            {
+                if (id.ToString() != appuser.Id)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
 
         //Logic for change password
         // GET: /Account/ChangePassword

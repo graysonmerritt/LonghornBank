@@ -22,7 +22,7 @@ namespace Team4_Final_Project.Models
         public String State { get; set; }
         [Display(Name = "Zipcode")]
         public String Zipcode { get; set; }
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Birthday")]
         
         public DateTime Birthday { get; set; }
 
