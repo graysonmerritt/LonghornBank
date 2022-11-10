@@ -8,7 +8,7 @@ namespace Team4_Final_Project.Controllers
         {
             if (User.Identity.IsAuthenticated == false)
             {
-                RedirectToAction("Login", "Account");
+                RedirectToAction("Login", "Account"); 
             }
 
             if (User.IsInRole("Customer"))
