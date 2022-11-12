@@ -141,9 +141,18 @@ namespace Team4_Final_Project.Controllers
             //they requested OR the homepage if there isn't a specific url
             if (result.Succeeded)
             {
-               
-                //return ?? "/" means if returnUrl is null, substitute "/" (home)
-                return Redirect(returnUrl ?? "/");
+                AppUser user = _context.Users.FirstOrDefault(u => u.Email == lvm.Email);
+                // TODO: this may have to move to home controller...?
+                if (user.IsActive == false)
+                {
+                    return View("Error", new string[] { "You are not authorized for this resource" });
+                }
+
+
+
+
+                    //return ?? "/" means if returnUrl is null, substitute "/" (home)
+                    return Redirect(returnUrl ?? "/");
             }
             else //log in was not successful
             {
@@ -165,12 +174,10 @@ namespace Team4_Final_Project.Controllers
             IndexViewModel ivm = new IndexViewModel();
             RegisterViewModel rvm = new RegisterViewModel();
 
-            //get user info
             String id = User.Identity.Name;
             AppUser user = _context.Users.FirstOrDefault(u => u.UserName == id);
 
-            //populate the view model
-            //(i.e. map the domain model to the view model)
+            
             ivm.Email = user.Email;
             ivm.HasPassword = true;
             ivm.UserID = user.Id;
@@ -189,7 +196,7 @@ namespace Team4_Final_Project.Controllers
             return View(rvm);
         }
 
-        //GET: User/Edit
+        
         public async Task<IActionResult> Edit(int? id)
         {
             String UName = User.Identity.Name;
@@ -201,23 +208,20 @@ namespace Team4_Final_Project.Controllers
             return View(user);
         }
 
-        //POST: User/Edit
+        
         [HttpPost]
         public async Task<IActionResult> Edit(int id, AppUser appuser)
         {
             try
             {
-                //var context = new Models.ApplicationDbContext();
-                //AppUser DBUser = _db.Users.Find(appuser.Id);
+                
                 String UName = User.Identity.Name;
                 AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UName);
-                //context.Entry(appuser).State = EntityState.Modified;
-                //user.Email = appuser.Email;
-                //user.UserName = appuser.UserName;
+                
                 if (User.IsInRole("Customer"))
                 {
                     user.FirstName = appuser.FirstName;
-                    //appuser.FirstName = user.FirstName;
+                    
                     appuser.LastName = user.LastName;
                     user.MiddleInitial = appuser.MiddleInitial;
                 }
@@ -229,12 +233,10 @@ namespace Team4_Final_Project.Controllers
                 user.Zipcode = appuser.Zipcode;
                 user.PhoneNumber = appuser.PhoneNumber;
                 _context.Update(user);
-                //await _db.SaveChangesAsync();
-                //user.PasswordHash = user.PasswordHash;
+                
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
-                //var user = context.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
-                //return View("Index");
+                
             }
 
             catch (DbUpdateConcurrencyException)
@@ -252,8 +254,7 @@ namespace Team4_Final_Project.Controllers
 
         }
 
-        //Logic for change password
-        // GET: /Account/ChangePassword
+        
         public ActionResult ChangePassword()
         {
             return View();
@@ -261,7 +262,7 @@ namespace Team4_Final_Project.Controllers
 
         
 
-        // POST: /Account/ChangePassword
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel cpvm)

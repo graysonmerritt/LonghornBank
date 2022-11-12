@@ -110,7 +110,21 @@ namespace Team4_Final_Project.Models
         [Display(Name = "Confirm new password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-    }   
+    }
+
+    // View model used for managers to change underlings passwords. Required so we don't need the current passcode
+    public class ManageChangePasswordViewModel
+    {
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string NewPassword { get; set; }
+
+        [EmailAddress]
+        [Display(Name = "Email:")]
+        public string Email { get; set; }
+    }
 
     //NOTE: This is the view model used to display basic user information
     //on the index page

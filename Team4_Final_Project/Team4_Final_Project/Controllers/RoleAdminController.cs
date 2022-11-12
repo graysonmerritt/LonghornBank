@@ -199,7 +199,5 @@ namespace Team4_Final_Project.Controllers
             //show the user the error page
             return View("Error", new string[] { "Role Not Found" });
         }
-
-
     }
 }
