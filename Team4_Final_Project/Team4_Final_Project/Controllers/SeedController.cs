@@ -84,5 +84,69 @@ namespace Team4_Final_Project.Controllers
             //this is the happy path - seeding worked!
             return View("Confirm");
         }
+
+
+        public async Task<IActionResult> SeedCustomers()
+        {
+            try
+            {
+                //call the method to seed the roles
+                await Seeding.SeedUsersTutorial.SeedAllUsers(_userManager, _context);
+            }
+            catch (Exception ex)
+            {
+                //add the error messages to a list of strings
+                List<String> errorList = new List<String>();
+
+                //Add the outer message
+                errorList.Add(ex.Message);
+
+                //Add the message from the inner exception
+                errorList.Add(ex.InnerException.Message);
+
+                //Add additional inner exception messages, if there are any
+                if (ex.InnerException.InnerException != null)
+                {
+                    errorList.Add(ex.InnerException.InnerException.Message);
+                }
+
+                return View("Error", errorList);
+            }
+
+            //this is the happy path - seeding worked!
+            return View("Confirm");
+        }
+
+
+        public async Task<IActionResult> SeedEmployees()
+        {
+            try
+            {
+                //call the method to seed the roles
+                await Seeding.SeedEmployeesTutorial.SeedAllUsers(_userManager, _context);
+            }
+            catch (Exception ex)
+            {
+                //add the error messages to a list of strings
+                List<String> errorList = new List<String>();
+
+                //Add the outer message
+                errorList.Add(ex.Message);
+
+                //Add the message from the inner exception
+                errorList.Add(ex.InnerException.Message);
+
+                //Add additional inner exception messages, if there are any
+                if (ex.InnerException.InnerException != null)
+                {
+                    errorList.Add(ex.InnerException.InnerException.Message);
+                }
+
+                return View("Error", errorList);
+            }
+
+            //this is the happy path - seeding worked!
+            return View("Confirm");
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Team4_Final_Project.Models
     {
         // TODO: DO A MIGRATION I UPDATED THESE TWO
         public Int32 AccountID { get; set; }
-        public Int32 AccountNumber { get; set; }
+        public Int64 AccountNumber { get; set; }
         public String Nickname { get; set; }
 
         public bool isActive { get; set; }  
