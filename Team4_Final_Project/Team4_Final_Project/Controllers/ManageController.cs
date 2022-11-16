@@ -36,7 +36,7 @@ namespace Team4_Final_Project.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Index","RoleAdmin");
+            return View();
         }
 
         
@@ -54,7 +54,6 @@ namespace Team4_Final_Project.Controllers
             return View(users);
 
         }
-
 
 
 
@@ -101,7 +100,6 @@ namespace Team4_Final_Project.Controllers
             try
             {
                 
-                var user1 = await _userManager.FindByIdAsync(appuser.Id);
                 
                 AppUser DBUser = _context.Users.Find(appuser.Id);
 
@@ -114,8 +112,8 @@ namespace Team4_Final_Project.Controllers
                 AppUser id = _context.Users.FirstOrDefault(i => i.Email == Email);
                 
 
-                String UName = Email;
-                AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UName);
+                String UserName = Email;
+                AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UserName);
                 
                 user.FirstName = appuser.FirstName;
                

@@ -29,9 +29,17 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <li>
-                                <a asp-controller="RoleAdmin" asp-action="Index" class="nav-link">Manage Users</a>
+                                <a asp-controller="RoleAdmin" asp-action="Index" class="nav-link">Manage Roles</a>
                             </li>
                         }
+
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <li>
+                                <a asp-controller="Manage" asp-action="Index" class="nav-link">Manage Users</a>
+                            </li>
+                        }
+                        
                     }
                 </ul>
             </div>

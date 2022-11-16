@@ -1,0 +1,6 @@
+﻿<a asp-action="ManageAllCustomers" asp-controller="Manage" class="btn btn-warning">Manage Customers</a>
+@{ if (User.IsInRole("Admin")){
+        <a asp-action="ManageAllEmployees" asp-controller="Manage" class="btn btn-warning">Manage Employees</a>
+}
+}
+
