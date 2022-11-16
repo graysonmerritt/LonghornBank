@@ -2,6 +2,10 @@
 {
     public class Stock
     {
+        public Stock()
+        {
+            StockTransactions ??= new List<StockTransaction>();
+        }
         public Int32 StockId { get; set; }
         public String StockTicker { get; set; }
 

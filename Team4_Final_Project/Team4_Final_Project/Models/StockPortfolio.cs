@@ -3,6 +3,10 @@ namespace Team4_Final_Project.Models
 {
     public class StockPortfolio
     {
+        public StockPortfolio()
+        {
+            StockTransactions ??= new List<StockTransaction>();
+        }
         public Int32 StockPortfolioID { get; set; }
         public bool Balanced { get; set; }
 

@@ -6,6 +6,8 @@ namespace Team4_Final_Project.Controllers
     {
         public IActionResult Index()
         {
+
+
             if (User.Identity.IsAuthenticated == false)
             {
                 RedirectToAction("Login", "Account"); 
