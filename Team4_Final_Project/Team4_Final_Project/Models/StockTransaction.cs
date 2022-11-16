@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Team4_Final_Project.Models
 {
@@ -9,5 +10,13 @@ namespace Team4_Final_Project.Models
         public Decimal Price { get; set; }
         public StockPortfolio StockPortfolio { get; set; }
         public Stock Stock { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public decimal ExtendedPrice
+        {
+            get { return NumberOfShares * Price; }
+            set { }
+
+        }
     }
 }

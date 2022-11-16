@@ -6,7 +6,7 @@ namespace Team4_Final_Project.Models
 {
     public class Account
     {
-        // TODO: DO A MIGRATION I UPDATED THESE TWO
+        
         public Int32 AccountID { get; set; }
         public Int64 AccountNumber { get; set; }
         public String Nickname { get; set; }

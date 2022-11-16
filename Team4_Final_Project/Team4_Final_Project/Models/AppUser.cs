@@ -23,7 +23,7 @@ namespace Team4_Final_Project.Models
         [Display(Name = "Zipcode")]
         public String Zipcode { get; set; }
         [Display(Name = "Birthday")]
-        
+        [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
 
         [Display(Name = "Is Active")]
