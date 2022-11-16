@@ -57,8 +57,8 @@ namespace Team4_Final_Project.Controllers
 
 
 
-        
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ManageAllEmployees()
         {
             
