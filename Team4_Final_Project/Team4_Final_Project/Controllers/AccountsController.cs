@@ -22,7 +22,20 @@ namespace Team4_Final_Project.Controllers
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Accounts.ToListAsync());
+            List<Account> accounts = new List<Account>();
+
+
+            if (User.IsInRole("Customer"))
+            {
+                
+                accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
+            else 
+            {
+                
+                accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+            }
+            return View(accounts);
         }
 
         // GET: Accounts/Details/5
