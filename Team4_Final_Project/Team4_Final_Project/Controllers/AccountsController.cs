@@ -29,6 +29,7 @@ namespace Team4_Final_Project.Controllers
                 
                 accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
+            // employee or admmin, can see all accounts 
             else 
             {
 

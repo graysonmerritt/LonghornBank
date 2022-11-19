@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ29uZmlybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -10,7 +10,7 @@
     <br /><a asp-action="Create">Apply for an Account</a> |
     <a asp-controller="Transaction" asp-action="Transfer">Transfer</a> |
     <a asp-controller="Transaction" asp-action="Deposit">Make a Deposit</a> |
-    <a asp-controller="Transaction" asp-action="Withdraw">Make a Withdrawal</a> 
+    <a asp-controller="Transaction" asp-action="Withdraw">Make a Withdrawal</a>
     </br>
 </p>
 <table class="table">
@@ -22,7 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Nickname)
             </th>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.Type)
             </th>
@@ -33,31 +33,32 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HiddenAccountNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nickname)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Balance)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HiddenAccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nickname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
                     <!--TODO: Check if this logic is correct-->
                     @if (item.isActive || (User.Identity.IsAuthenticated && User.IsInRole("Admin")))
                     {
                         <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> <text>| </text>
-                <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
                     }
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
