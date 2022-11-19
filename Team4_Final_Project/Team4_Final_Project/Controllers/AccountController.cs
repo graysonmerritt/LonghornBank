@@ -191,6 +191,7 @@ namespace Team4_Final_Project.Controllers
             rvm.Zipcode = user.Zipcode;
             rvm.PhoneNumber = user.PhoneNumber;
             rvm.Email = user.Email;
+            rvm.Birthday = (DateTime)user.Birthday;
 
             //send data to the view
             return View(rvm);
