@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
+                @Html.DisplayNameFor(model => model.HiddenAccountNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nickname)
@@ -32,7 +32,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AccountNumber)
+                @Html.DisplayFor(modelItem => item.HiddenAccountNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nickname)
@@ -46,8 +46,12 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
+                    <!--TODO: Check if this logic is correct-->
+                    @if (item.isActive || (User.Identity.IsAuthenticated && User.IsInRole("Admin")))
+                    {
+                        <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> <text>| </text>
                 <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
+                    }
             </td>
         </tr>
 }

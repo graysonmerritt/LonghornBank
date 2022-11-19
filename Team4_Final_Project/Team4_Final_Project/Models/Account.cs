@@ -9,6 +9,13 @@ namespace Team4_Final_Project.Models
         
         public Int32 AccountID { get; set; }
         public Int64 AccountNumber { get; set; }
+        // TODO: check if i'm insane on this one
+        public String HiddenAccountNumber
+        {
+            get { return AccountNumber.ToString().Substring(AccountNumber.ToString().Length -4, AccountNumber.ToString().Length) ; }
+            set { }
+
+        }
         public String Nickname { get; set; }
 
         public bool isActive { get; set; }  

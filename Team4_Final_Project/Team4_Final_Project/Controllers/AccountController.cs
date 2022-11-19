@@ -24,7 +24,7 @@ namespace Team4_Final_Project.Controllers
             _context = appDbContext;
             _userManager = userManager;
             _signInManager = signIn;
-            //user manager only has one password validator
+            
             _passwordValidator = (PasswordValidator<AppUser>)userManager.PasswordValidators.FirstOrDefault();
         }
 
@@ -215,8 +215,8 @@ namespace Team4_Final_Project.Controllers
             try
             {
                 
-                String UName = User.Identity.Name;
-                AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UName);
+                String UserName = User.Identity.Name;
+                AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UserName);
                 
                 if (User.IsInRole("Customer"))
                 {

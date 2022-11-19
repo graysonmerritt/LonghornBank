@@ -32,8 +32,8 @@ namespace Team4_Final_Project.Controllers
             }
             else 
             {
-                
-                accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+
+                accounts = _context.Accounts.ToList();
             }
             return View(accounts);
         }
