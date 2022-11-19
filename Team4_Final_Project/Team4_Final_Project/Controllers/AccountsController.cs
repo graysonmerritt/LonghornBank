@@ -24,7 +24,6 @@ namespace Team4_Final_Project.Controllers
         {
             List<Account> accounts = new List<Account>();
 
-
             if (User.IsInRole("Customer"))
             {
                 
@@ -47,12 +46,17 @@ namespace Team4_Final_Project.Controllers
             }
 
             var account = await _context.Accounts
+                .Include(u=> u.AppUser)
                 .FirstOrDefaultAsync(m => m.AccountID == id);
             if (account == null)
             {
-                return NotFound();
+                return View("Error", new String[] { "Cannot find the account!" });
             }
 
+            if (User.IsInRole("Customer") && account.AppUser.UserName != User.Identity.Name)
+            {
+                return View("Error", new String[] { "This is not your account!  Don't be such a snoop!" });
+            }
             return View(account);
         }
 

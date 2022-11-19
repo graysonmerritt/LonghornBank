@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Principal;
 using System.Xml.Linq;
 // no difference between checking and savings
 public enum AccountType { Checking, Savings, IRA}
@@ -12,9 +13,8 @@ namespace Team4_Final_Project.Models
         // TODO: check if i'm insane on this one
         public String HiddenAccountNumber
         {
-            get { return AccountNumber.ToString().Substring(AccountNumber.ToString().Length -4, AccountNumber.ToString().Length) ; }
+            get { return AccountNumber.ToString().Substring(HiddenAccountNumber.Length - 4); }
             set { }
-
         }
         public String Nickname { get; set; }
 
