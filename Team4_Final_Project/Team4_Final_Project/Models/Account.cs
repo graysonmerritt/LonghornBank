@@ -2,7 +2,7 @@
 using System.Security.Principal;
 using System.Xml.Linq;
 // no difference between checking and savings
-public enum AccountType { Checking, Savings, IRA, Stock}
+public enum AccountType { Checking, Savings, IRA}
 namespace Team4_Final_Project.Models
 {
     public class Account
@@ -15,10 +15,7 @@ namespace Team4_Final_Project.Models
         // Thought I could handel logic here, but 0 is the default account number
         // maybe come back and check if this can be done here instead of controller??
         public String HiddenAccountNumber
-        {
-            
-            get; set;  
-        }
+        { get; set;  }
         public String Nickname { get; set; }
 
         public bool isActive { get; set; }  

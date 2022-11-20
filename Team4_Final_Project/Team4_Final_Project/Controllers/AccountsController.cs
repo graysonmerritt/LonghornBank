@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +29,11 @@ namespace Team4_Final_Project.Controllers
 
             if (User.IsInRole("Customer"))
             {
-                
+
                 accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
             }
             // employee or admmin, can see all accounts 
-            else 
+            else
             {
 
                 accounts = _context.Accounts.ToList();
@@ -47,7 +50,7 @@ namespace Team4_Final_Project.Controllers
             }
 
             var account = await _context.Accounts
-                .Include(u=> u.AppUser)
+                .Include(u => u.AppUser)
                 .FirstOrDefaultAsync(m => m.AccountID == id);
             if (account == null)
             {
@@ -62,6 +65,7 @@ namespace Team4_Final_Project.Controllers
         }
 
         // GET: Accounts/Create
+        [Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
             return View();
@@ -72,9 +76,18 @@ namespace Team4_Final_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountID,AccountNumber,Nickname,isActive,Type,Balance")] Account account)
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> Create([Bind("AccountID,AccountNumber,Nickname,isActive,Type,Balance,AppUser")] Account account)
         {
-            // set default nick name
+            var query = from a in _context.Accounts select a;
+            var iraCount = query.Where(a => a.AppUser == account.AppUser && a.Type == AccountType.IRA).ToList().Count();
+            // check to see if they have an account already made
+            if (iraCount >= 1)
+            {
+                return View("Error", new String[] { "You can only have one IRA account." });
+            }
+
+            // set default nick names that were said in specs
             if (account.Type == AccountType.Checking)
             {
                 if (account.Nickname is null)
@@ -90,15 +103,19 @@ namespace Team4_Final_Project.Controllers
                     account.Nickname = "Longhorn Savings";
                 }
             }
+
+
             // actually set account number so I don't keep breaking my code
             account.AccountNumber = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
             String s = account.AccountNumber.ToString();
-            account.HiddenAccountNumber =  s.Substring(s.Length - 4);
+            account.HiddenAccountNumber = s.Substring(s.Length - 4);
+            account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+
             if (ModelState.IsValid)
             {
                 _context.Add(account);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Deposit", new { id = account.AccountID });
             }
             return View(account);
         }
@@ -194,6 +211,11 @@ namespace Team4_Final_Project.Controllers
         private bool AccountExists(int id)
         {
             return _context.Accounts.Any(e => e.AccountID == id);
+        }
+
+        public IActionResult Confirmation()
+        {
+            return View();
         }
     }
 }
