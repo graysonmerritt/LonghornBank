@@ -30,7 +30,7 @@ namespace Team4_Final_Project.Controllers
             if (User.IsInRole("Customer"))
             {
 
-                accounts = _context.Accounts.Where(r => r.AppUser.UserName == User.Identity.Name).ToList();
+                accounts = _context.Accounts.Where(u => u.AppUser.UserName == User.Identity.Name).ToList();
             }
             // employee or admmin, can see all accounts 
             else
@@ -62,6 +62,32 @@ namespace Team4_Final_Project.Controllers
                 return View("Error", new String[] { "This is not your account!  Don't be such a snoop!" });
             }
             return View(account);
+        }
+        [Authorize(Roles = "Customer")]
+        public IActionResult Deposit(int? id)
+        {
+            Account account = _context.Accounts.Find(id);
+            if (account == null)
+            {
+                return View("Error", new String[] { "Account could not be found!" });
+            }
+            return View(account);
+        }
+
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
+        {
+            if (id != account.AccountID)
+            {
+                return NotFound();
+            }
+
+            Account userAccount = await _context.Accounts
+                .Include(u => u.AppUser)
+                .FirstOrDefaultAsync(m => m.AccountID == id);
         }
 
         // GET: Accounts/Create
