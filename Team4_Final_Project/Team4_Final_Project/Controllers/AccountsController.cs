@@ -49,9 +49,7 @@ namespace Team4_Final_Project.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .Include(u => u.AppUser)
-                .FirstOrDefaultAsync(m => m.AccountID == id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(m => m.AccountID == id);
             if (account == null)
             {
                 return View("Error", new String[] { "Cannot find the account!" });
@@ -63,6 +61,8 @@ namespace Team4_Final_Project.Controllers
             }
             return View(account);
         }
+
+
         [Authorize(Roles = "Customer")]
         public IActionResult Deposit(int? id)
         {
@@ -74,21 +74,22 @@ namespace Team4_Final_Project.Controllers
             return View(account);
         }
 
-        // POST
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
-        {
-            if (id != account.AccountID)
-            {
-                return NotFound();
-            }
-
-            Account userAccount = await _context.Accounts
-                .Include(u => u.AppUser)
-                .FirstOrDefaultAsync(m => m.AccountID == id);
-        }
+        // TODO: ask if we need to have an initial deposit transaction. Otherwise, we may not need this
+        //POST
+       //[HttpPost]
+       //[ValidateAntiForgeryToken]
+       //[Authorize(Roles = "Customer")]
+       // public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
+       // {
+       //     if (id != account.AccountID)
+       //     {
+       //         return NotFound();
+       //     }
+       //     // grab account 
+       //     Account userAccount = await _context.Accounts
+       //         .Include(u => u.AppUser)
+       //         .FirstOrDefaultAsync(m => m.AccountID == id);
+       // }
 
         // GET: Accounts/Create
         [Authorize(Roles = "Customer")]
@@ -136,7 +137,7 @@ namespace Team4_Final_Project.Controllers
             String s = account.AccountNumber.ToString();
             account.HiddenAccountNumber = s.Substring(s.Length - 4);
             account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-
+            account.isActive = true;
             if (ModelState.IsValid)
             {
                 _context.Add(account);
@@ -154,11 +155,17 @@ namespace Team4_Final_Project.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts.FindAsync(id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(m => m.AccountID == id);
             if (account == null)
             {
                 return NotFound();
             }
+
+            if (User.IsInRole("Customer") && account.AppUser.UserName != User.Identity.Name)
+            {
+                return View("Error", new String[] { "This is not your account!  Don't be such a snoop trying to edit!" });
+            }
+
             return View(account);
         }
 

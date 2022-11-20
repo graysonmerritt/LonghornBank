@@ -52,7 +52,6 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
-                    <!--TODO: Check if this logic is correct-->
                     @if (item.isActive || (User.Identity.IsAuthenticated && User.IsInRole("Admin")))
                     {
                         <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> <text>| </text>

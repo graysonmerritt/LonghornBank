@@ -9,6 +9,14 @@ namespace Team4_Final_Project.Models
         }
         public Int32 StockPortfolioID { get; set; }
         public Int64 AccountNumber { get; set; }
+        // Thought I could handel logic here, but 0 is the default account number
+        // maybe come back and check if this can be done here instead of controller??
+        //TODO: Ask how to handle this
+        public String HiddenAccountNumber
+        {
+
+            get; set;
+        }
         public String Nickname { get; set; }
         public bool Balanced { get; set; }
 
@@ -17,6 +25,7 @@ namespace Team4_Final_Project.Models
         public Decimal Fee { get; set; }
         public Decimal Bonus { get; set; }
         public AppUser AppUser { get; set; }
+        public bool IsActive { get; set; }
         public List<StockTransaction> StockTransactions { get; set; }
     }
 }
