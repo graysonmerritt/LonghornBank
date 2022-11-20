@@ -2,7 +2,7 @@
 using System.Security.Principal;
 using System.Xml.Linq;
 // no difference between checking and savings
-public enum AccountType { Checking, Savings, IRA}
+public enum AccountType { Checking, Savings, IRA, Stock}
 namespace Team4_Final_Project.Models
 {
     public class Account
@@ -10,11 +10,14 @@ namespace Team4_Final_Project.Models
         
         public Int32 AccountID { get; set; }
         public Int64 AccountNumber { get; set; }
-        // TODO: check if i'm insane on this one
+
+
+        // Thought I could handel logic here, but 0 is the default account number
+        // maybe come back and check if this can be done here instead of controller??
         public String HiddenAccountNumber
         {
-            get { return AccountNumber.ToString().Substring(HiddenAccountNumber.Length - 4); }
-            set { }
+            
+            get; set;  
         }
         public String Nickname { get; set; }
 

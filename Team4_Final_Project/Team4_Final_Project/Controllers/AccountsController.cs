@@ -74,6 +74,7 @@ namespace Team4_Final_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AccountID,AccountNumber,Nickname,isActive,Type,Balance")] Account account)
         {
+            // set default nick name
             if (account.Type == AccountType.Checking)
             {
                 if (account.Nickname is null)
@@ -89,6 +90,10 @@ namespace Team4_Final_Project.Controllers
                     account.Nickname = "Longhorn Savings";
                 }
             }
+            // actually set account number so I don't keep breaking my code
+            account.AccountNumber = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
+            String s = account.AccountNumber.ToString();
+            account.HiddenAccountNumber =  s.Substring(s.Length - 4);
             if (ModelState.IsValid)
             {
                 _context.Add(account);
