@@ -106,10 +106,11 @@ namespace Team4_Final_Project.Controllers
         [Authorize(Roles = "Customer")]
         public async Task<IActionResult> Create([Bind("AccountID,AccountNumber,Nickname,isActive,Type,Balance,AppUser")] Account account)
         {
+            account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
             var query = from a in _context.Accounts select a;
-            var iraCount = query.Where(a => a.AppUser == account.AppUser && a.Type == AccountType.IRA).ToList().Count();
+            var count = query.Where(a => a.AppUser == account.AppUser && a.Type == AccountType.IRA).ToList().Count();
             // check to see if they have an account already made
-            if (iraCount >= 1)
+            if (count >= 1)
             {
                 return View("Error", new String[] { "You can only have one IRA account." });
             }
@@ -136,7 +137,7 @@ namespace Team4_Final_Project.Controllers
             account.AccountNumber = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
             String s = account.AccountNumber.ToString();
             account.HiddenAccountNumber = s.Substring(s.Length - 4);
-            account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            
             account.isActive = true;
             if (ModelState.IsValid)
             {

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Team4_Final_Project.Models.StockPortfolio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HiddenAccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nickname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balanced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableCash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bonus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HiddenAccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balanced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableCash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StockPortfolioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StockPortfolioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StockPortfolioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

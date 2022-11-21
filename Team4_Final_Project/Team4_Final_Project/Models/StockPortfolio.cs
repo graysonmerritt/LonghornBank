@@ -18,6 +18,8 @@ namespace Team4_Final_Project.Models
             get; set;
         }
         public String Nickname { get; set; }
+        // TODO: may have to remigrate
+        public Decimal Balance { get; set; }
         public bool Balanced { get; set; }
 
         public Decimal Gain { get; set; }
