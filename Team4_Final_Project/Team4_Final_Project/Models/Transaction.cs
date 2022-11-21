@@ -14,6 +14,8 @@
 
         public Int32 TransactionID { get; set; }
         public Int32 Number { get; set; }
+        // amount can be always positive (must have another property to indicate if deposit or withdrawal
+        // or amount can be postive for deposit and negative for withdrawal
         public Decimal Amount { get; set; }
         public String Notes { get; set; }   
         public DateTime Date { get; set; } 

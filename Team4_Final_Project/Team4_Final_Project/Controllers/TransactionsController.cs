@@ -20,9 +20,23 @@ namespace Team4_Final_Project.Controllers
         }
 
         // GET: Transactions
+        // use index for quick search
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Transactions.ToListAsync());
+            List<Transaction> transactions = new List<Transaction>();
+
+            if (!User.IsInRole("Customer"))
+            {
+                transactions = _context.Transactions.ToList();
+            }
+            // is a customer and should only see their transactions
+            else
+            {
+                transactions = _context.Transactions.Where(r => r.Account.AppUser.UserName == User.Identity.Name).ToList();
+
+            }
+
+            return View(transactions);
         }
 
         // GET: Transactions/Details/5
@@ -33,8 +47,11 @@ namespace Team4_Final_Project.Controllers
                 return NotFound();
             }
 
+            List<Dispute> Disputes = _context.Disputes.Where(t => t.Transaction.TransactionID == id).ToList();
             var transaction = await _context.Transactions
+                .Include(a => a.Account)
                 .FirstOrDefaultAsync(m => m.TransactionID == id);
+            transaction.Disputes = Disputes;
             if (transaction == null)
             {
                 return NotFound();
