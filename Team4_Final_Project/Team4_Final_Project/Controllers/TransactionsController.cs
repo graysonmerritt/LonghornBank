@@ -26,8 +26,9 @@ namespace Team4_Final_Project.Controllers
         }
 
         // GET: Transactions
-        // use index for quick search
-        public async Task<IActionResult> Index()
+        // use index for quick search??
+        // index can filter based on if they navigated from the account details page
+        public async Task<IActionResult> Index(int? id)
         {
             List<Transaction> transactions;
 
@@ -38,7 +39,16 @@ namespace Team4_Final_Project.Controllers
             // is a customer and should only see their transactions
             else
             {
-                transactions = _context.Transactions.Where(r => r.Account.AppUser.UserName == User.Identity.Name).ToList();
+                if (id is null)
+                {
+                    transactions = _context.Transactions.Where(a => a.Account.AppUser.UserName == User.Identity.Name).ToList();
+
+                }
+                // actually have an account, so only show those transactions
+                else
+                {
+                    transactions = _context.Transactions.Where(a => a.Account.AccountID == id).ToList();
+                }
 
             }
 
