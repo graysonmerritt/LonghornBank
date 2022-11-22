@@ -17,9 +17,11 @@ namespace Team4_Final_Project.Controllers
     {
         private readonly AppDbContext _context;
 
+
         public AccountsController(AppDbContext context)
         {
             _context = context;
+            
         }
 
         // GET: Accounts
@@ -46,13 +48,13 @@ namespace Team4_Final_Project.Controllers
         {
             if (id == null || _context.Accounts == null)
             {
-                return NotFound();
+                return View("Error", new String[] { "Please specify an account to view!" });
             }
 
-            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(m => m.AccountID == id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(a => a.AccountID == id);
             if (account == null)
             {
-                return View("Error", new String[] { "Cannot find the account!" });
+                return View("Error", new String[] { "This account was not found!" });
             }
 
             if (User.IsInRole("Customer") && account.AppUser.UserName != User.Identity.Name)
@@ -69,7 +71,7 @@ namespace Team4_Final_Project.Controllers
             Account account = _context.Accounts.Find(id);
             if (account == null)
             {
-                return View("Error", new String[] { "Account could not be found!" });
+                return View("Error", new String[] { "This account was not found!" });
             }
             return View(account);
         }
@@ -106,6 +108,7 @@ namespace Team4_Final_Project.Controllers
         [Authorize(Roles = "Customer")]
         public async Task<IActionResult> Create([Bind("AccountID,AccountNumber,Nickname,isActive,Type,Balance,AppUser")] Account account)
         {
+
             account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
             var query = from a in _context.Accounts select a;
             var count = query.Where(a => a.AppUser == account.AppUser && a.Type == AccountType.IRA).ToList().Count();
@@ -153,18 +156,23 @@ namespace Team4_Final_Project.Controllers
         {
             if (id == null || _context.Accounts == null)
             {
-                return NotFound();
+                return View("Error", new String[] { "Please specify an account to edit" });
             }
 
-            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(m => m.AccountID == id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(a => a.AccountID == id);
             if (account == null)
             {
-                return NotFound();
+                return View("Error", new String[] { "This account was not found in the database!" });
             }
 
             if (User.IsInRole("Customer") && account.AppUser.UserName != User.Identity.Name)
             {
                 return View("Error", new String[] { "This is not your account!  Don't be such a snoop trying to edit!" });
+            }
+            //account is not active - cannot be edited
+            if (!account.isActive)
+            {
+                return View("Error", new string[] { "This account is inactive and cannot be changed!" });
             }
 
             return View(account);
@@ -179,30 +187,33 @@ namespace Team4_Final_Project.Controllers
         {
             if (id != account.AccountID)
             {
-                return NotFound();
+                return View("Error", new String[] { "There was a problem editing this account. Try again!" });
             }
 
-            if (ModelState.IsValid)
+            //if there is something wrong with this order, try again
+            if (ModelState.IsValid == false)
             {
-                try
-                {
-                    _context.Update(account);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AccountExists(account.AccountID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View(account);
             }
-            return View(account);
+            //if code gets this far, update the record
+            try
+            {
+                //find the record in the database
+                Account dbAccount = _context.Accounts.Find(account.AccountID);
+
+                //update the notes
+                dbAccount.Nickname = account.Nickname;
+
+                _context.Update(dbAccount);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new String[] { "There was an error updating this account!", ex.Message });
+            }
+
+            //send the user to the Registrations Index page.
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Accounts/Delete/5
