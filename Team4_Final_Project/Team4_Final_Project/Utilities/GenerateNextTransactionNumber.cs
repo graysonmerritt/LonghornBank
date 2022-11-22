@@ -6,6 +6,8 @@ using Team4_Final_Project.DAL;
 
 namespace Team4_Final_Project.Utilities
 {
+    // creating this becuz excel data starts at 1 and continues upwards similar to account number
+    // also will liekly be used as an identifer when we seed
     public class GenerateNextTransactionNumber
     {
         public static Int32 GetNextTransactionNumber(AppDbContext _context)

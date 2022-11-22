@@ -5,7 +5,9 @@
 }
 
 <h1>Details</h1>
-<a asp-action="Index" asp-controller="Transactions" asp-route-accountid="@Model.AccountID">Go to Transactions</a>
+<!--TODO: Do I need this? May just be convenient-->
+
+<a asp-action="Index" asp-controller="Transactions" asp-route-accountid="@Model.AccountID">Transactions Page for more Details</a>
 <div>
     <h4>Account</h4>
     <hr />
@@ -47,12 +49,19 @@
 <table class="table table-sm table-primary">
     <tr>
         <th>Transaction Number</th>
-
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Notes</th>
+        <th>Status</th>
     </tr>
     @foreach (Transaction trans in Model.Transactions)
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => trans.Number)</td>
+            <td>@Html.DisplayFor(modelItem => trans.Type)</td>
+            <td>@Html.DisplayFor(modelItem => trans.Amount)</td>
+            <td>@Html.DisplayFor(modelItem => trans.Notes)</td>
+            <td>@Html.DisplayFor(modelItem => trans.Status)</td>
 
         </tr>
     }

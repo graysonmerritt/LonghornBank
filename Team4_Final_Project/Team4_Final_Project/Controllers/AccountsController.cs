@@ -51,7 +51,8 @@ namespace Team4_Final_Project.Controllers
                 return View("Error", new String[] { "Please specify an account to view!" });
             }
 
-            Account account = await _context.Accounts.Include(u => u.AppUser).FirstOrDefaultAsync(a => a.AccountID == id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).Include(t=> t.Transactions).FirstOrDefaultAsync(a => a.AccountID == id);
+
             if (account == null)
             {
                 return View("Error", new String[] { "This account was not found!" });
@@ -76,22 +77,58 @@ namespace Team4_Final_Project.Controllers
             return View(account);
         }
 
-        // TODO: ask if we need to have an initial deposit transaction. Otherwise, we may not need this
         //POST
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Customer")]
-        // public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
-        // {
-        //     if (id != account.AccountID)
-        //     {
-        //         return NotFound();
-        //     }
-        //     // grab account 
-        //     Account userAccount = await _context.Accounts
-        //         .Include(u => u.AppUser)
-        //         .FirstOrDefaultAsync(m => m.AccountID == id);
-        // }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
+        // can reuse this for transation deposit?
+        public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, Balance, accountType, Value")] Account account)
+        {
+            if (id != account.AccountID)
+            {
+                return View("Error", new String[] { "There was a problem adding a deposit to this account. Try again!" });
+
+            }
+            // grab account 
+            Account dbAccount = await _context.Accounts
+                .Include(u => u.AppUser)
+                .FirstOrDefaultAsync(a => a.AccountID == id);
+
+            Transaction transaction = new Transaction();
+
+            // update our new account if deposit is logical
+            if (account.Balance <= 0)
+            {
+                return View("Deposit", account);
+
+            }
+            if (account.Balance >= 5000)
+            {
+                transaction.Status = TransactionStatus.Pending;
+            }
+            else
+            {
+                transaction.Status = TransactionStatus.Completed;
+                dbAccount.Balance = account.Balance;
+            }
+            // create transaction and add it to the account
+            // TODO: set qualified property?
+            transaction.Account = dbAccount;
+            transaction.Notes = "Created Account";
+            transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+            transaction.Amount = account.Balance;
+            transaction.Type = TransactionType.Deposit;
+            transaction.Date = DateTime.Today;
+            dbAccount.Transactions.Add(transaction);
+            if (ModelState.IsValid)
+            {
+                _context.Update(dbAccount);
+                _context.Add(transaction);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Confirm));
+            }
+            return View(dbAccount);
+        }
 
         // GET: Accounts/Create
         [Authorize(Roles = "Customer")]
@@ -142,12 +179,14 @@ namespace Team4_Final_Project.Controllers
             account.AccountNumber = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
             String s = account.AccountNumber.ToString();
             account.HiddenAccountNumber = s.Substring(s.Length - 4);
-
             account.isActive = true;
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(account);
                 await _context.SaveChangesAsync();
+                // deal with depsoit in a different method. Makes things easier with logic and debugging
                 return RedirectToAction("Deposit", new { id = account.AccountID });
             }
             return View(account);
@@ -171,8 +210,8 @@ namespace Team4_Final_Project.Controllers
             {
                 return View("Error", new String[] { "This is not your account!  Don't be such a snoop trying to edit!" });
             }
-            //account is not active - cannot be edited
-            if (!account.isActive)
+            //account is not active - cannot be edited unless by employees or admin
+            if (!account.isActive && User.IsInRole("Customer"))
             {
                 return View("Error", new string[] { "This account is inactive and cannot be changed!" });
             }
@@ -203,9 +242,9 @@ namespace Team4_Final_Project.Controllers
                 //find the record in the database
                 Account dbAccount = _context.Accounts.Find(account.AccountID);
 
-                //update the notes
+                //update the nickname
                 dbAccount.Nickname = account.Nickname;
-
+                dbAccount.isActive = account.isActive;
                 _context.Update(dbAccount);
                 await _context.SaveChangesAsync();
             }
@@ -214,7 +253,7 @@ namespace Team4_Final_Project.Controllers
                 return View("Error", new String[] { "There was an error updating this account!", ex.Message });
             }
 
-            //send the user to the Registrations Index page.
+            //send the user to the Accounts Index page.
             return RedirectToAction(nameof(Index));
         }
 
@@ -260,7 +299,7 @@ namespace Team4_Final_Project.Controllers
             return _context.Accounts.Any(e => e.AccountID == id);
         }
 
-        public IActionResult Confirmation()
+        public IActionResult Confirm()
         {
             return View();
         }
