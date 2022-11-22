@@ -6,6 +6,11 @@
 
 <h1>Index</h1>
 
+@if (!User.IsInRole("Customer"))
+{
+    <a asp-action="ShowPending"> Show Pending </a>
+    <a asp-action="ShowAll">| Show All </a>
+}
 <p>
     <a asp-action="Withdrawal">Withdrawal</a>
     <a asp-action="Deposit">Deposit</a>
