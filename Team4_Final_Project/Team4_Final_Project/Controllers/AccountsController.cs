@@ -25,7 +25,7 @@ namespace Team4_Final_Project.Controllers
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            List<Account> accounts = new List<Account>();
+            List<Account> accounts;
 
             if (User.IsInRole("Customer"))
             {
