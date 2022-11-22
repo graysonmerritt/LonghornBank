@@ -5,7 +5,7 @@
 }
 
 <h1>Details</h1>
-
+<a asp-action="Index" asp-controller="Transactions" asp-route-accountid="@Model.AccountID">Go to Transactions</a>
 <div>
     <h4>Account</h4>
     <hr />
@@ -46,7 +46,7 @@
 <!--TODO: Check if this works and what needs to be added-->
 <table class="table table-sm table-primary">
     <tr>
-        <th>Name</th>
+        <th>Transaction Number</th>
 
     </tr>
     @foreach (Transaction trans in Model.Transactions)

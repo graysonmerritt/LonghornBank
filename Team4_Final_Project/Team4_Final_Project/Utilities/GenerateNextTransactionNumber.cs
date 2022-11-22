@@ -8,14 +8,14 @@ namespace Team4_Final_Project.Utilities
 {
     public class GenerateNextTransactionNumber
     {
-        public static Int64 GetNextTransactionNumber(AppDbContext _context)
+        public static Int32 GetNextTransactionNumber(AppDbContext _context)
         {
             //set a constant to designate where the registration numbers 
             //should start
-            const Int64 START_NUMBER = 1;
+            const Int32 START_NUMBER = 1;
 
-            Int64 intMaxTransNumber; //the current maximum course number
-            Int64 intNextTransNumber; //the course number for the next class
+            Int32 intMaxTransNumber; //the current maximum course number
+            Int32 intNextTransNumber; //the course number for the next class
 
             if (_context.Transactions.Count() == 0) //there are no registrations in the database yet
             {

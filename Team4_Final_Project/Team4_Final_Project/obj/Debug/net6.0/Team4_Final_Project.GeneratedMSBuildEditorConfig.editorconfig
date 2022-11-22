@@ -171,6 +171,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlcG9zaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -181,6 +185,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Withdrawal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFdpdGhkcmF3YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/_ViewImports.cshtml]
