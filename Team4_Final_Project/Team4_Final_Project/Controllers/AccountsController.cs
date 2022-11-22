@@ -21,7 +21,7 @@ namespace Team4_Final_Project.Controllers
         public AccountsController(AppDbContext context)
         {
             _context = context;
-            
+
         }
 
         // GET: Accounts
@@ -78,20 +78,20 @@ namespace Team4_Final_Project.Controllers
 
         // TODO: ask if we need to have an initial deposit transaction. Otherwise, we may not need this
         //POST
-       //[HttpPost]
-       //[ValidateAntiForgeryToken]
-       //[Authorize(Roles = "Customer")]
-       // public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
-       // {
-       //     if (id != account.AccountID)
-       //     {
-       //         return NotFound();
-       //     }
-       //     // grab account 
-       //     Account userAccount = await _context.Accounts
-       //         .Include(u => u.AppUser)
-       //         .FirstOrDefaultAsync(m => m.AccountID == id);
-       // }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[Authorize(Roles = "Customer")]
+        // public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, accountType, Value")] Account account)
+        // {
+        //     if (id != account.AccountID)
+        //     {
+        //         return NotFound();
+        //     }
+        //     // grab account 
+        //     Account userAccount = await _context.Accounts
+        //         .Include(u => u.AppUser)
+        //         .FirstOrDefaultAsync(m => m.AccountID == id);
+        // }
 
         // GET: Accounts/Create
         [Authorize(Roles = "Customer")]
@@ -112,12 +112,14 @@ namespace Team4_Final_Project.Controllers
             account.AppUser = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
             var query = from a in _context.Accounts select a;
             var count = query.Where(a => a.AppUser == account.AppUser && a.Type == AccountType.IRA).ToList().Count();
-            // check to see if they have an account already made
-            if (count >= 1)
+            if (account.Type == AccountType.IRA)
             {
-                return View("Error", new String[] { "You can only have one IRA account." });
+                // check to see if they have an account already made
+                if (count >= 1)
+                {
+                    return View("Error", new String[] { "You can only have one IRA account." });
+                }
             }
-
             // set default nick names that were said in specs
             if (account.Type == AccountType.Checking)
             {
@@ -140,7 +142,7 @@ namespace Team4_Final_Project.Controllers
             account.AccountNumber = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
             String s = account.AccountNumber.ToString();
             account.HiddenAccountNumber = s.Substring(s.Length - 4);
-            
+
             account.isActive = true;
             if (ModelState.IsValid)
             {
