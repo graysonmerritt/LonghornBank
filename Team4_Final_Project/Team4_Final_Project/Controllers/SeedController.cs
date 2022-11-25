@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
-
 using Team4_Final_Project.Models;
 using Team4_Final_Project.DAL;
 using Team4_Final_Project.Seeding;

@@ -51,9 +51,11 @@
                     @Html.DisplayFor(modelItem => item.Balance)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
+
                     @if (item.isActive || (User.Identity.IsAuthenticated && User.IsInRole("Admin")))
                     {
+                        <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a>
+                        <text>| </text>
                         <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> <text>| </text>
                         <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
                     }

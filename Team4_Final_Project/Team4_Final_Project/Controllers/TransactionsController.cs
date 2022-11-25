@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Threading.Tasks;
+﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using Team4_Final_Project.DAL;
 using Team4_Final_Project.Models;
+using Team4_Final_Project.Models.ViewModels;
 
 namespace Team4_Final_Project.Controllers
 {
@@ -30,6 +29,12 @@ namespace Team4_Final_Project.Controllers
             return accountSelectList;
         }
 
+        private SelectList GetAllAccountsTransfer()
+        {
+            List<Account> account = _context.Accounts.Where(u => u.AppUser.UserName == User.Identity.Name).ToList();
+            SelectList accountSelectList = new SelectList(account.OrderBy(a => a.AccountID), "AccountID", "TransferInfo");
+            return accountSelectList;
+        }
 
         public IActionResult ShowPending()
         {
@@ -94,6 +99,7 @@ namespace Team4_Final_Project.Controllers
             return View(transaction);
         }
 
+        [Authorize(Roles = "Customer")]
 
         public async Task<IActionResult> Withdrawal()
         {
@@ -101,7 +107,10 @@ namespace Team4_Final_Project.Controllers
 
             return View();
         }
+
         // different from the accounts/depost due to choosing which account we want this time
+        [Authorize(Roles = "Customer")]
+
         public async Task<IActionResult> Deposit()
         {
             ViewBag.GetAllAccounts = GetAllAccounts();
@@ -110,6 +119,8 @@ namespace Team4_Final_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
+
         public async Task<IActionResult> Withdrawal([Bind("TransactionID,Number,Amount,Notes,Date,Type,Status,DistributionStatus")] Transaction transaction, int selectedAccount)
         {
             Account account = _context.Accounts.FirstOrDefault(a => a.AccountID == selectedAccount);
@@ -143,6 +154,8 @@ namespace Team4_Final_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
+
         public async Task<IActionResult> Deposit([Bind("TransactionID,Number,Amount,Notes,Date,Type,Status,DistributionStatus")] Transaction transaction, int selectedAccount)
         {
             Account account = _context.Accounts.FirstOrDefault(a => a.AccountID == selectedAccount);
@@ -205,7 +218,14 @@ namespace Team4_Final_Project.Controllers
             return View(transaction);
         }
 
+        //GET
+        [Authorize(Roles = "Customer")]
 
+        public ActionResult Transfer()
+        {
+            TransferViewModel tvm = new TransferViewModel();
+            return View(tvm);
+        }
         // GET: Transactions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
