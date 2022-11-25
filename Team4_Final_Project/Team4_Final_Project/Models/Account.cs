@@ -31,6 +31,13 @@ namespace Team4_Final_Project.Models
         // sum transcations or sum deposits - withdrawals
         public Decimal Balance { get; set; }
 
+        public String TransferInfo
+        {
+            get { return Nickname +" xxxxxx" + HiddenAccountNumber + " " + Balance; }
+            set { }
+
+        }
+
         public AppUser AppUser { get; set; }
         public List<Transaction> Transactions { get; set; }
 
