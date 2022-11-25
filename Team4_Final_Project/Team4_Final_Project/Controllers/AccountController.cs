@@ -24,7 +24,7 @@ namespace Team4_Final_Project.Controllers
             _context = appDbContext;
             _userManager = userManager;
             _signInManager = signIn;
-            
+
             _passwordValidator = (PasswordValidator<AppUser>)userManager.PasswordValidators.FirstOrDefault();
         }
 
@@ -67,7 +67,7 @@ namespace Team4_Final_Project.Controllers
                 Zipcode = rvm.Zipcode,
                 Birthday = rvm.Birthday,
                 IsActive = true
-                
+
 
 
             };
@@ -87,7 +87,7 @@ namespace Team4_Final_Project.Controllers
             IdentityResult result = await Utilities.AddUser.AddUserWithRoleAsync(aum, _userManager, _context);
 
             if (result.Succeeded) //everything is okay
-            { 
+            {
                 //NOTE: This code logs the user into the account that they just created
                 //You may or may not want to log a user in directly after they register - check
                 //the business rules!
@@ -136,7 +136,7 @@ namespace Team4_Final_Project.Controllers
 
             //attempt to sign the user in using the SignInManager
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
-          
+
             //if the login worked, take the user to either the url
             //they requested OR the homepage if there isn't a specific url
             if (result.Succeeded)
@@ -151,8 +151,8 @@ namespace Team4_Final_Project.Controllers
 
 
 
-                    //return ?? "/" means if returnUrl is null, substitute "/" (home)
-                    return Redirect(returnUrl ?? "/");
+                //return ?? "/" means if returnUrl is null, substitute "/" (home)
+                return Redirect(returnUrl ?? "/");
             }
             else //log in was not successful
             {
@@ -177,7 +177,7 @@ namespace Team4_Final_Project.Controllers
             String id = User.Identity.Name;
             AppUser user = _context.Users.FirstOrDefault(u => u.UserName == id);
 
-            
+
             ivm.Email = user.Email;
             ivm.HasPassword = true;
             ivm.UserID = user.Id;
@@ -197,7 +197,7 @@ namespace Team4_Final_Project.Controllers
             return View(rvm);
         }
 
-        
+
         public async Task<IActionResult> Edit(int? id)
         {
             String UName = User.Identity.Name;
@@ -209,20 +209,20 @@ namespace Team4_Final_Project.Controllers
             return View(user);
         }
 
-        
+
         [HttpPost]
         public async Task<IActionResult> Edit(int id, AppUser appuser)
         {
             try
             {
-                
+
                 String UserName = User.Identity.Name;
                 AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UserName);
-                
+
                 if (User.IsInRole("Customer"))
                 {
                     user.FirstName = appuser.FirstName;
-                    
+
                     appuser.LastName = user.LastName;
                     user.MiddleInitial = appuser.MiddleInitial;
                 }
@@ -234,10 +234,10 @@ namespace Team4_Final_Project.Controllers
                 user.Zipcode = appuser.Zipcode;
                 user.PhoneNumber = appuser.PhoneNumber;
                 _context.Update(user);
-                
+
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
-                
+
             }
 
             catch (DbUpdateConcurrencyException)
@@ -255,15 +255,15 @@ namespace Team4_Final_Project.Controllers
 
         }
 
-        
+
         public ActionResult ChangePassword()
         {
             return View();
         }
 
-        
 
-        
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel cpvm)
@@ -313,6 +313,6 @@ namespace Team4_Final_Project.Controllers
 
             //send the user back to the home page
             return RedirectToAction("Index", "Home");
-        }           
+        }
     }
 }

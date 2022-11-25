@@ -34,10 +34,7 @@ namespace Team4_Final_Project.Models
         public AppUser AppUser { get; set; }
         public List<Transaction> Transactions { get; set; }
 
-        public Account()
-        {
-            Transactions ??= new List<Transaction>();
-        }
+        
 
     }
 }

@@ -28,7 +28,7 @@ namespace Team4_Final_Project.Controllers
         {
             //Create a list of roles that will need to be edited
             List<RoleEditModel> roles = new List<RoleEditModel>();
-            
+
             //loop through each of the existing roles
             foreach (IdentityRole role in _roleManager.Roles)
             {
@@ -62,16 +62,16 @@ namespace Team4_Final_Project.Controllers
                 rem.Role = role; //role from database
                 rem.RoleMembers = RoleMembers; //list of users in this role
                 rem.RoleNonMembers = RoleNonMembers; //list of users NOT in this role
-                
+
                 //add this role to the list of role edit models
-                roles.Add(rem);  
+                roles.Add(rem);
             }
 
             //pass the list of roles to the view
             return View(roles);
         }
 
-        public ActionResult Create() 
+        public ActionResult Create()
         {
             return View();
         }
@@ -159,7 +159,7 @@ namespace Team4_Final_Project.Controllers
 
                         //attempt to add the user to the role using the UserManager
                         result = await _userManager.AddToRoleAsync(user, rmm.RoleName);
-                        
+
                         //if attempt to add user to role didn't work, show user the error page
                         if (result.Succeeded == false)
                         {

@@ -39,7 +39,7 @@ namespace Team4_Final_Project.Controllers
             return View();
         }
 
-        
+
 
         public async Task<IActionResult> ManageAllCustomers()
         {
@@ -60,7 +60,7 @@ namespace Team4_Final_Project.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ManageAllEmployees()
         {
-            
+
 
             List<AppUser> users = new List<AppUser>();
             foreach (AppUser user in _userManager.Users)
@@ -72,7 +72,7 @@ namespace Team4_Final_Project.Controllers
             }
             return View(users);
 
-            
+
 
         }
 
@@ -81,13 +81,13 @@ namespace Team4_Final_Project.Controllers
         //GET: RoleAdmin/Edit
         public IActionResult EditUser(string Email)
         {
-            
+
             if (Email == null)
             {
                 return View("Error", new String[] { "Please specify the account you wish to edit!" });
             }
 
-            
+
             AppUser user = _context.Users.FirstOrDefault(u => u.Email == Email);
 
             return View(user);
@@ -99,8 +99,8 @@ namespace Team4_Final_Project.Controllers
         {
             try
             {
-                
-                
+
+
                 AppUser DBUser = _context.Users.Find(appuser.Id);
 
                 var userId = _context.Users
@@ -110,13 +110,13 @@ namespace Team4_Final_Project.Controllers
                 var ids = appuser.Id;
 
                 AppUser id = _context.Users.FirstOrDefault(i => i.Email == Email);
-                
+
 
                 String UserName = Email;
                 AppUser user = _context.Users.FirstOrDefault(u => u.UserName == UserName);
-                
+
                 user.FirstName = appuser.FirstName;
-               
+
                 user.LastName = appuser.LastName;
                 user.MiddleInitial = appuser.MiddleInitial;
                 user.Street = appuser.Street;
@@ -129,7 +129,7 @@ namespace Team4_Final_Project.Controllers
 
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
-                
+
             }
 
             catch (DbUpdateConcurrencyException)
@@ -143,14 +143,14 @@ namespace Team4_Final_Project.Controllers
                     throw;
                 }
             }
-            
+
             return RedirectToAction(nameof(ManageAllCustomers));
 
         }
 
         public ActionResult ChangePassword(String Email)
         {
-           
+
             return View();
         }
 
@@ -177,7 +177,7 @@ namespace Team4_Final_Project.Controllers
             //if the attempt to change the password worked
             if (result.Succeeded)
             {
-              
+
 
                 //send the user back to the manage page
                 return RedirectToAction("Index", "Manage");

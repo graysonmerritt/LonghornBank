@@ -25,7 +25,7 @@ namespace Team4_Final_Project.Controllers
         // GET: StockTypes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.StockTypes.ToListAsync());
+            return View(await _context.StockTypes.ToListAsync());
         }
 
         // GET: StockTypes/Details/5
@@ -151,14 +151,14 @@ namespace Team4_Final_Project.Controllers
             {
                 _context.StockTypes.Remove(stockType);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StockTypeExists(int id)
         {
-          return _context.StockTypes.Any(e => e.StockTypeID == id);
+            return _context.StockTypes.Any(e => e.StockTypeID == id);
         }
     }
 }

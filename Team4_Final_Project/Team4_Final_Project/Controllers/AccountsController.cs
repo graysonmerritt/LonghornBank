@@ -51,7 +51,7 @@ namespace Team4_Final_Project.Controllers
                 return View("Error", new String[] { "Please specify an account to view!" });
             }
 
-            Account account = await _context.Accounts.Include(u => u.AppUser).Include(t=> t.Transactions).FirstOrDefaultAsync(a => a.AccountID == id);
+            Account account = await _context.Accounts.Include(u => u.AppUser).Include(t => t.Transactions).FirstOrDefaultAsync(a => a.AccountID == id);
 
             if (account == null)
             {
