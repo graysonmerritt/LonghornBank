@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Team4_Final_Project.csproj": {}
+    "C:\\Users\\grays\\Documents\\GitHub\\LonghornBank\\Team4_Final_Project\\Team4_Final_Project\\Team4_Final_Project.csproj": {}
   },
   "projects": {
-    "/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Team4_Final_Project.csproj": {
+    "C:\\Users\\grays\\Documents\\GitHub\\LonghornBank\\Team4_Final_Project\\Team4_Final_Project\\Team4_Final_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Team4_Final_Project.csproj",
+        "projectUniqueName": "C:\\Users\\grays\\Documents\\GitHub\\LonghornBank\\Team4_Final_Project\\Team4_Final_Project\\Team4_Final_Project.csproj",
         "projectName": "Team4_Final_Project",
-        "projectPath": "/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Team4_Final_Project.csproj",
-        "packagesPath": "/Users/carsondendulk/.nuget/packages/",
-        "outputPath": "/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/obj/",
+        "projectPath": "C:\\Users\\grays\\Documents\\GitHub\\LonghornBank\\Team4_Final_Project\\Team4_Final_Project\\Team4_Final_Project.csproj",
+        "packagesPath": "C:\\Users\\grays\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\grays\\Documents\\GitHub\\LonghornBank\\Team4_Final_Project\\Team4_Final_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/carsondendulk/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\grays\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -90,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\PROGRAM FILES\\DOTNET\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
