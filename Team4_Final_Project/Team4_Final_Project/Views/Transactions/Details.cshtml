@@ -5,36 +5,16 @@
 }
 
 <h1>Details</h1>
-<a asp-action="Create" asp-controller="Disputes" asp-route-transactionid="@Model.TransactionID">Dispute</a>
 
 <div>
     <h4>Transaction</h4>
     <hr />
     <dl class="row">
-        @Html.HiddenFor(model => model.Account.AccountID)
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Account.HiddenAccountNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Account.HiddenAccountNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Account.Nickname)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Account.Nickname)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Number)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Number)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Amount)
@@ -54,7 +34,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Date)
         </dd>
-        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Status)
         </dt>
@@ -69,21 +54,6 @@
         </dd>
     </dl>
 </div>
-
-@*<h5>Disputes on this Transaction</h5>
-<table class="table table-bordered">
-    <tr>
-        <th>Dispute Comment</th>
-        <th>Dispute Status</th>
-    </tr>
-    @foreach (Dispute d in Model.Disputes)
-    {
-        <tr>
-            <td>@d.DisputeComment</td>
-            <td>@d.DisputeStatus</td>
-        </tr>
-    }
-</table>*@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.TransactionID">Edit</a> |
     <a asp-action="Index">Back to List</a>
