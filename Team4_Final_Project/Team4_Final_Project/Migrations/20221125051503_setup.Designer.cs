@@ -12,8 +12,8 @@ using Team4_Final_Project.DAL;
 namespace Team4_Final_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221125050326_setup12")]
-    partial class setup12
+    [Migration("20221125051503_setup")]
+    partial class setup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

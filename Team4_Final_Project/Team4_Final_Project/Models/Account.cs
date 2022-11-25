@@ -7,7 +7,10 @@ namespace Team4_Final_Project.Models
 {
     public class Account
     {
-        
+        public Account()
+        {
+            Transactions ??= new List<Transaction>();
+        }
         public Int32 AccountID { get; set; }
         public Int64 AccountNumber { get; set; }
 

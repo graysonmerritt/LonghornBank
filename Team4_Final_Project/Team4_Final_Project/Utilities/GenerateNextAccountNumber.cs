@@ -12,7 +12,7 @@ namespace Team4_Final_Project.Utilities
         {
             //set a constant to designate where the registration numbers 
             //should start
-            const Int64 START_NUMBER = 2290000001;
+            const Int64 START_NUMBER = 2290000000;
 
             Int64 intMaxAccountNumber; //the current maximum course number
             Int64 intNextAccountNumber; //the course number for the next class

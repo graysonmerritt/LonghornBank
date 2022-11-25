@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Team4_Final_Project.Migrations
 {
-    public partial class Setup : Migration
+    public partial class setup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -100,11 +100,13 @@ namespace Team4_Final_Project.Migrations
                 {
                     AccountID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountNumber = table.Column<int>(type: "int", nullable: false),
+                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
+                    HiddenAccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isActive = table.Column<bool>(type: "bit", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TransferInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -203,22 +205,28 @@ namespace Team4_Final_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StockPortsfolios",
+                name: "StockPortfolios",
                 columns: table => new
                 {
                     StockPortfolioID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountNumber = table.Column<long>(type: "bigint", nullable: false),
+                    HiddenAccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Balanced = table.Column<bool>(type: "bit", nullable: false),
                     Gain = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AvailableCash = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Bonus = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AppUserForeignKey = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    AppUserForeignKey = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StockPortsfolios", x => x.StockPortfolioID);
+                    table.PrimaryKey("PK_StockPortfolios", x => x.StockPortfolioID);
                     table.ForeignKey(
-                        name: "FK_StockPortsfolios_AspNetUsers_AppUserForeignKey",
+                        name: "FK_StockPortfolios_AspNetUsers_AppUserForeignKey",
                         column: x => x.AppUserForeignKey,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -256,6 +264,8 @@ namespace Team4_Final_Project.Migrations
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    DistributionStatus = table.Column<int>(type: "int", nullable: false),
                     AccountID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -276,16 +286,18 @@ namespace Team4_Final_Project.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfShares = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TransactionType = table.Column<int>(type: "int", nullable: false),
                     StockPortfolioID = table.Column<int>(type: "int", nullable: true),
-                    StockId = table.Column<int>(type: "int", nullable: true)
+                    StockId = table.Column<int>(type: "int", nullable: true),
+                    ExtendedPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StockTransactions", x => x.StockTransactionID);
                     table.ForeignKey(
-                        name: "FK_StockTransactions_StockPortsfolios_StockPortfolioID",
+                        name: "FK_StockTransactions_StockPortfolios_StockPortfolioID",
                         column: x => x.StockPortfolioID,
-                        principalTable: "StockPortsfolios",
+                        principalTable: "StockPortfolios",
                         principalColumn: "StockPortfolioID");
                     table.ForeignKey(
                         name: "FK_StockTransactions_Stocks_StockId",
@@ -364,8 +376,8 @@ namespace Team4_Final_Project.Migrations
                 column: "TransactionID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StockPortsfolios_AppUserForeignKey",
-                table: "StockPortsfolios",
+                name: "IX_StockPortfolios_AppUserForeignKey",
+                table: "StockPortfolios",
                 column: "AppUserForeignKey",
                 unique: true,
                 filter: "[AppUserForeignKey] IS NOT NULL");
@@ -421,7 +433,7 @@ namespace Team4_Final_Project.Migrations
                 name: "Transactions");
 
             migrationBuilder.DropTable(
-                name: "StockPortsfolios");
+                name: "StockPortfolios");
 
             migrationBuilder.DropTable(
                 name: "Stocks");
