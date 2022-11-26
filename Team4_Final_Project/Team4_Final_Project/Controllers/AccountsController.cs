@@ -120,6 +120,7 @@ namespace Team4_Final_Project.Controllers
             transaction.Amount = account.Balance;
             transaction.Type = TransactionType.Deposit;
             transaction.Date = DateTime.Today;
+            transaction.DistributionStatus = DistributionStatus.NA;
             dbAccount.Transactions.Add(transaction);
             if (ModelState.IsValid)
             {
@@ -181,7 +182,7 @@ namespace Team4_Final_Project.Controllers
             String s = account.AccountNumber.ToString();
             account.HiddenAccountNumber = s.Substring(s.Length - 4);
             account.isActive = true;
-
+            
 
             if (ModelState.IsValid)
             {

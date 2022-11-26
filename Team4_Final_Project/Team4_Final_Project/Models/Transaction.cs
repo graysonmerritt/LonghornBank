@@ -4,7 +4,7 @@ namespace Team4_Final_Project.Models
 {
     public enum TransactionType { Deposit, Withdrawal, Fee, Transfer}
     public enum TransactionStatus { Completed, Pending, Disputed }
-    public enum DistributionStatus { Qualified, Unqualified }
+    public enum DistributionStatus { Qualified, Unqualified, NA }
 
     // TRANSFERS ARE TWO TRANSACTIONS (one withdrawal, one deposit)
     public class Transaction

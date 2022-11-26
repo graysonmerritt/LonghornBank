@@ -230,30 +230,36 @@ namespace Team4_Final_Project.Controllers
         // do all transfer logic here
         // GET
         //"Before completing the transaction, the customer should see a confirmation page which allows them to confirm or cancel the transfer"
-        //[Authorize(Roles = "Customer")]
-        //public ActionResult InitiateTransfer(TransferViewModel tvm)
-        //{
-        //    Account FromAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.FromAccountID);
+        [Authorize(Roles = "Customer")]
+        public ActionResult InitiateTransfer(TransferViewModel tvm)
+        {
+            Account FromAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.FromAccountID);
 
-        //    if (tvm.Amount > FromAccount.Balance)
-        //    {
-        //        return View("Error", new String[] { "The account you are trying to transfer money FROM does not have a suffcient balance" });
-        //    }
+            if (tvm.Amount > FromAccount.Balance)
+            {
+                return View("Error", new String[] { "The account you are trying to transfer money FROM does not have a suffcient balance" });
+            }
 
-        //    Account ToAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.ToAccountID);
-        //    if (!ToAccount.isActive || !FromAccount.isActive)
-        //    {
-        //        return View("Error", new String[] { "One of the accounts is inactive" });
-        //    }
+            Account ToAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.ToAccountID);
+            if (!ToAccount.isActive || !FromAccount.isActive)
+            {
+                return View("Error", new String[] { "One of the accounts is inactive" });
+            }
 
-        //    if (FromAccount.Type == AccountType.IRA)
-        //    {
-        //        AppUser ToUser = ToAccount.AppUser;
-        //        Int32 age = Int32.Parse(DateTime.Now.ToString("yyyyMMdd"))
-        //            - Int32.Parse(ToUser.Birthday.ToString("yyyyMMdd")) / 10000;
+            Transaction FromTransaction = new Transaction();
+            Transaction ToTransaction = new Transaction();
 
-        //    }
-        //}
+            if (FromAccount.Type == AccountType.IRA)
+            {
+                AppUser ToUser = ToAccount.AppUser;
+                Int32 age = Int32.Parse(DateTime.Now.ToString("yyyyMMdd"))
+                    - Int32.Parse(ToUser.Birthday.ToString("yyyyMMdd")) / 10000;
+                if (age > 65)
+                {
+                    FromTransaction.DistributionStatus = DistributionStatus.Qualified;
+                }
+            }
+        }
 
         [Authorize(Roles = "Customer")]
         public ActionResult Confirm([Bind("FromAccountID,ToAccountID,Date,Amount,Comment")] TransferViewModel tvm)
