@@ -10,13 +10,13 @@ namespace Team4_Final_Project.Models.ViewModels
 
         [Display(Name = "To Account:")]
         public Int32 ToAccountID { get; set; }
-       
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        [Required()]
+
+        // TODO: check out a weird feature on this date property
+        [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [Required()]
+        [Required]
         public decimal Amount { get; set; }
 
         public string Comment { get; set; }

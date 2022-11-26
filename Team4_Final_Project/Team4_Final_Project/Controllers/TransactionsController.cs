@@ -220,12 +220,51 @@ namespace Team4_Final_Project.Controllers
 
         //GET
         [Authorize(Roles = "Customer")]
-
         public ActionResult Transfer()
         {
+            ViewBag.GetAllAccountsTransfer = GetAllAccountsTransfer();
             TransferViewModel tvm = new TransferViewModel();
             return View(tvm);
         }
+
+        // do all transfer logic here
+        // GET
+        //"Before completing the transaction, the customer should see a confirmation page which allows them to confirm or cancel the transfer"
+        //[Authorize(Roles = "Customer")]
+        //public ActionResult InitiateTransfer(TransferViewModel tvm)
+        //{
+        //    Account FromAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.FromAccountID);
+
+        //    if (tvm.Amount > FromAccount.Balance)
+        //    {
+        //        return View("Error", new String[] { "The account you are trying to transfer money FROM does not have a suffcient balance" });
+        //    }
+
+        //    Account ToAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.ToAccountID);
+        //    if (!ToAccount.isActive || !FromAccount.isActive)
+        //    {
+        //        return View("Error", new String[] { "One of the accounts is inactive" });
+        //    }
+
+        //    if (FromAccount.Type == AccountType.IRA)
+        //    {
+        //        AppUser ToUser = ToAccount.AppUser;
+        //        Int32 age = Int32.Parse(DateTime.Now.ToString("yyyyMMdd"))
+        //            - Int32.Parse(ToUser.Birthday.ToString("yyyyMMdd")) / 10000;
+
+        //    }
+        //}
+
+        [Authorize(Roles = "Customer")]
+        public ActionResult Confirm([Bind("FromAccountID,ToAccountID,Date,Amount,Comment")] TransferViewModel tvm)
+        {
+            Account FromAccount = _context.Accounts.Find(tvm.FromAccountID);
+            ViewBag.FromAccountName = FromAccount.Nickname;
+            Account ToAccount = _context.Accounts.Find(tvm.ToAccountID);
+            ViewBag.ToAccountName = ToAccount.Nickname;
+            return View(tvm);
+        }
+
         // GET: Transactions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

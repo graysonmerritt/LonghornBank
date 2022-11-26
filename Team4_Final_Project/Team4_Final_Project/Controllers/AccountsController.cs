@@ -81,7 +81,7 @@ namespace Team4_Final_Project.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Customer")]
-        // can reuse this for transation deposit?
+        // can reuse this code for transation deposit?
         public async Task<IActionResult> Deposit(int id, [Bind("AccountID,AccountNumber,AccountName,Status, Balance, accountType, Value")] Account account)
         {
             if (id != account.AccountID)
@@ -102,6 +102,7 @@ namespace Team4_Final_Project.Controllers
                 return View("Deposit", account);
 
             }
+            // TODO: HANDLE ADMIN MAKING THESE COMPLETED
             if (account.Balance >= 5000)
             {
                 transaction.Status = TransactionStatus.Pending;
@@ -244,7 +245,12 @@ namespace Team4_Final_Project.Controllers
 
                 //update the nickname
                 dbAccount.Nickname = account.Nickname;
-                dbAccount.isActive = account.isActive;
+                // This logic is needed since customer's can't see the isActive edit on the view
+                // pls don't touch
+                if (!User.IsInRole("Customer"))
+                {
+                    dbAccount.isActive = account.isActive;
+                }
                 _context.Update(dbAccount);
                 await _context.SaveChangesAsync();
             }
@@ -253,7 +259,6 @@ namespace Team4_Final_Project.Controllers
                 return View("Error", new String[] { "There was an error updating this account!", ex.Message });
             }
 
-            //send the user to the Accounts Index page.
             return RedirectToAction(nameof(Index));
         }
 

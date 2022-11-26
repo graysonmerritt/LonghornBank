@@ -1,0 +1,54 @@
+﻿@model Team4_Final_Project.Models.ViewModels.TransferViewModel
+
+@{
+    ViewData["Title"] = "Confirm your Transfer";
+}
+
+
+<div>
+    <h4>Is this Transfer Correct?</h4>
+</div>
+<div>
+    <h5>Transfer Details</h5>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FromAccountID)
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.FromAccountName
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ToAccountID)
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.ToAccountName
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @*@ViewBag.TransferComments*@
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @*@ViewBag.TransferComments*@
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd class="col-sm-10">
+            @*@ViewBag.TransferComments*@
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="InitiateTransfer" class="btn btn-primary">Confirm</a>
+    <a asp-action="Index" class="btn btn-danger">Cancel</a>
+</div>

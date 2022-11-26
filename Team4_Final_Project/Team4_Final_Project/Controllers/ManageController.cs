@@ -61,7 +61,6 @@ namespace Team4_Final_Project.Controllers
         public async Task<IActionResult> ManageAllEmployees()
         {
 
-
             List<AppUser> users = new List<AppUser>();
             foreach (AppUser user in _userManager.Users)
             {

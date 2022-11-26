@@ -28,7 +28,6 @@ namespace Team4_Final_Project.Controllers
 
             if (User.IsInRole("Customer"))
             {
-                // TODO: check to see if customer has accounts, then redirect to account management page
                 if (numOfAccounts > 0)
                 {
                     return RedirectToAction("Index", "Accounts");
