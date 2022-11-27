@@ -57,4 +57,6 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.TransactionID">Edit</a> |
     <a asp-action="Index">Back to List</a>
+    <text>|</text>
+    <a asp-action="Create" asp-controller="Disputes" asp-route-id="@Model.TransactionID">Dispute this Transaction</a>
 </div>

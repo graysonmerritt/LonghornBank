@@ -9,6 +9,7 @@
 <p>
     <a asp-action="Withdrawal">Withdrawal</a>
     <a asp-action="Deposit">Deposit</a>
+    <a asp-action="Transfer">Transfer</a>
 </p>
 <table class="table">
     <thead>
@@ -62,9 +63,12 @@
                 @Html.DisplayFor(modelItem => item.DistributionStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.TransactionID">Details |</a>
+                    @if (!User.IsInRole("Customer"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.TransactionID">Approve |</a>
+                        <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete </a>
+                    }
             </td>
         </tr>
 }

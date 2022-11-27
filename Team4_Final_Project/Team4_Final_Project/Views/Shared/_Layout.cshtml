@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a asp-controller="Transactions" asp-action="Index" class="nav-link">Transactions</a>
                         </li>
+                        <li class="nav-item">
+                            <a asp-controller="Disputes" asp-action="Index" class="nav-link">Disputes</a>
+                        </li>
                         @if (User.IsInRole("Admin"))
                         {
                             <li>

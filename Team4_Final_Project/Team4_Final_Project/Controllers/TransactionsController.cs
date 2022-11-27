@@ -36,20 +36,7 @@ namespace Team4_Final_Project.Controllers
             return accountSelectList;
         }
 
-        // useful for admin later
-        public IActionResult ShowPending()
-        {
-            List<Transaction> transactions = _context.Transactions.ToList();
-            return View(transactions);
-        }
-
-        // just fill up list with all transactions
-        public IActionResult ShowAll()
-        {
-            List<Transaction> transactions = _context.Transactions.ToList();
-
-            return View("Index", transactions);
-        }
+       
 
         // GET: Transactions
         // use index for quick search??
@@ -141,8 +128,8 @@ namespace Team4_Final_Project.Controllers
             transaction.Amount = -(transaction.Amount);
             account.Balance += transaction.Amount;
             transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
-            transaction.Status = TransactionStatus.Completed;
-            //TODO: set a default for date????
+            transaction.Status = TransactionStatus.Completed;transaction.Status = TransactionStatus.Completed;
+            transaction.DistributionStatus = DistributionStatus.NA;
             if (ModelState.IsValid)
             {
                 _context.Add(transaction);
@@ -205,6 +192,7 @@ namespace Team4_Final_Project.Controllers
             //allowed to contribute!
             transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
             transaction.Type = TransactionType.Deposit;
+            transaction.DistributionStatus = DistributionStatus.NA;
 
             // set nav properties
             account.Transactions.Add(transaction);
@@ -232,7 +220,7 @@ namespace Team4_Final_Project.Controllers
         // do all transfer logic here
         // GET
         [Authorize(Roles = "Customer")]
-        public ActionResult InitiateTransfer(TransferViewModel tvm)
+        public ActionResult InitiateTransfer([Bind("FromAccountID, ToAccountID, IncludeFee, Amount, Date")] TransferViewModel tvm)
         {
             Account FromAccount = _context.Accounts.Include(a => a.AppUser).FirstOrDefault(a => a.AccountID == tvm.FromAccountID);
 
