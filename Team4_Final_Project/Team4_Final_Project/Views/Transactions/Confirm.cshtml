@@ -9,6 +9,8 @@
 <div>
     <h5>Transfer Details</h5>
     <hr />
+    @Html.HiddenFor(m => m.ToAccountID)
+    @Html.HiddenFor(m => m.FromAccountID)
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FromAccountID)
@@ -39,6 +41,7 @@
      
     </dl>
 </div>
+
 <div>
     <a asp-action="InitiateTransfer" class="btn btn-primary">Confirm</a>
     <a asp-action="Index" class="btn btn-danger">Cancel</a>
