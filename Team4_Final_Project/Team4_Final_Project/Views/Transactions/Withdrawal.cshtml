@@ -15,7 +15,7 @@
                 @Html.DropDownList("selectedAccount", (SelectList)ViewBag.GetAllAccounts, new { @class = "form-control" })
             </div>
             <div class="form-group">
-                <label class="control-label">Withdraw Amount:</label>
+                <label class="control-label">Amount:</label>
                 <input asp-for="Amount" class="form-control" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>

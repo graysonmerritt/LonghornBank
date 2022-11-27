@@ -6,7 +6,6 @@ using Team4_Final_Project.Models;
 
 namespace Team4_Final_Project.Controllers
 {
-    //TODO: Uncomment this line once you have roles working correctly
     [Authorize(Roles = "Admin")]
     public class RoleAdminController : Controller
     {

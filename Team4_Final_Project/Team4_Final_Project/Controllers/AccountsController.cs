@@ -113,7 +113,6 @@ namespace Team4_Final_Project.Controllers
                 dbAccount.Balance = account.Balance;
             }
             // create transaction and add it to the account
-            // TODO: set qualified property?
             transaction.Account = dbAccount;
             transaction.Notes = "Created Account";
             transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);

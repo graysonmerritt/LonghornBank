@@ -19,7 +19,9 @@ namespace Team4_Final_Project.Models
         // amount can be always positive (must have another property to indicate if deposit or withdrawal
         // or amount can be postive for deposit and negative for withdrawal
         public Decimal Amount { get; set; }
+        // used more internally
         public String Notes { get; set; }
+        // used more on user side
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } 

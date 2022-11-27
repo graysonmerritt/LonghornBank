@@ -36,6 +36,7 @@ namespace Team4_Final_Project.Controllers
             return accountSelectList;
         }
 
+        // useful for admin later
         public IActionResult ShowPending()
         {
             List<Transaction> transactions = _context.Transactions.ToList();
@@ -140,7 +141,6 @@ namespace Team4_Final_Project.Controllers
             transaction.Amount = -(transaction.Amount);
             account.Balance += transaction.Amount;
             transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
-            // TODO: check if this is needed cuz i'm totally blanking
             transaction.Status = TransactionStatus.Completed;
             //TODO: set a default for date????
             if (ModelState.IsValid)
@@ -202,12 +202,14 @@ namespace Team4_Final_Project.Controllers
                     return RedirectToAction("FixIRA", "Transactions", new { id = transaction.TransactionID });
                 }
             }
-
+            //allowed to contribute!
             transaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+            transaction.Type = TransactionType.Deposit;
 
             // set nav properties
             account.Transactions.Add(transaction);
             transaction.Account = account;
+            account.Balance += transaction.Amount;
 
             if (ModelState.IsValid)
             {
@@ -229,7 +231,6 @@ namespace Team4_Final_Project.Controllers
 
         // do all transfer logic here
         // GET
-        //"Before completing the transaction, the customer should see a confirmation page which allows them to confirm or cancel the transfer"
         [Authorize(Roles = "Customer")]
         public ActionResult InitiateTransfer(TransferViewModel tvm)
         {
@@ -249,6 +250,7 @@ namespace Team4_Final_Project.Controllers
             Transaction FromTransaction = new Transaction();
             Transaction ToTransaction = new Transaction();
 
+            // IRA qualification logic for transferring OUT
             if (FromAccount.Type == AccountType.IRA)
             {
                 AppUser ToUser = ToAccount.AppUser;
@@ -258,11 +260,85 @@ namespace Team4_Final_Project.Controllers
                 {
                     FromTransaction.DistributionStatus = DistributionStatus.Qualified;
                 }
+                // unqualified
+                else
+                {
+                    if (tvm.Amount > 3000)
+                    {
+                        return View("Error", new String[] { "This transfer is unqualified and has to be less than 3001 dollars" });
+                    }
+                    FromTransaction.Notes = "Transfer to account " + ToAccount.AccountNumber;
+                    FromTransaction.DistributionStatus = DistributionStatus.Unqualified;
+                    FromTransaction.Account = FromAccount;
+                    FromTransaction.Type = TransactionType.Transfer;
+                    FromTransaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+                    FromTransaction.Status = TransactionStatus.Completed;
+                    FromTransaction.Date = tvm.Date;
+                    if (tvm.IncludeFee)
+                    {
+                        // TODO: check this logic
+                        FromTransaction.Amount = tvm.Amount + -30;
+                    }
+                    else
+                    {
+                        FromTransaction.Amount = tvm.Amount;
+                        // create fee transaction
+                        Transaction fee = new Transaction();
+                        fee.Amount = -30;
+                        fee.Type = TransactionType.Fee;
+                        fee.Notes = "Unqualified Distribution Fee";
+                        fee.DistributionStatus = DistributionStatus.Unqualified;
+                        fee.Account = FromAccount;
+                        fee.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+                        fee.Status = TransactionStatus.Completed;
+                        fee.Date = tvm.Date;
+                        _context.Add(fee);
+                        FromAccount.Transactions.Add(fee);
+                        _context.SaveChanges();
+                    }
+                }
             }
+            // not IRA, so create the fromaccount transaction here
+            else
+            {
+                FromAccount.Balance -= tvm.Amount;
+                FromTransaction.Amount = tvm.Amount;
+                FromTransaction.Account = FromAccount;
+                FromTransaction.Type = TransactionType.Transfer;
+                FromTransaction.Notes = "Transfer to account " + ToAccount.AccountNumber;
+                FromTransaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+                FromTransaction.Status = TransactionStatus.Completed;
+                FromTransaction.Date = tvm.Date;
+            }
+            // create to transaction now
+            ToAccount.Balance += tvm.Amount;
+            ToTransaction.Amount = tvm.Amount;
+            ToTransaction.Account = ToAccount;
+            ToTransaction.Type = TransactionType.Transfer;
+            ToTransaction.Notes = "Transfer from account " + FromAccount.AccountNumber;
+            ToTransaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
+            ToTransaction.Status = TransactionStatus.Completed;
+            ToTransaction.Date = tvm.Date;
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(FromTransaction);
+                FromAccount.Transactions.Add(FromTransaction);
+                _context.Add(ToTransaction);
+                ToAccount.Transactions.Add(ToTransaction);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View("Transfer");
         }
 
+
+
+        //"Before completing the transaction, the customer should see a confirmation page which allows them to confirm or cancel the transfer"
+
         [Authorize(Roles = "Customer")]
-        public ActionResult Confirm([Bind("FromAccountID,ToAccountID,Date,Amount,Comment")] TransferViewModel tvm)
+        public ActionResult Confirm([Bind("FromAccountID,ToAccountID,Date,Amount")] TransferViewModel tvm)
         {
             Account FromAccount = _context.Accounts.Find(tvm.FromAccountID);
             ViewBag.FromAccountName = FromAccount.Nickname;

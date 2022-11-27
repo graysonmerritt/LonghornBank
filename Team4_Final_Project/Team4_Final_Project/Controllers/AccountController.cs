@@ -56,7 +56,6 @@ namespace Team4_Final_Project.Controllers
                 Email = rvm.Email,
                 PhoneNumber = rvm.PhoneNumber,
 
-                //TODO: Add the rest of the custom user fields here
                 //FirstName is included as an example
                 FirstName = rvm.FirstName,
                 LastName = rvm.LastName,
@@ -78,7 +77,6 @@ namespace Team4_Final_Project.Controllers
                 User = newUser,
                 Password = rvm.Password,
 
-                //TODO: You will need to change this value if you want to 
                 //add the user to a different role - just specify the role name.
                 RoleName = "Customer"
             };
@@ -147,8 +145,6 @@ namespace Team4_Final_Project.Controllers
                 {
                     return View("Error", new string[] { "You are not authorized for this resource" });
                 }
-
-
 
 
                 //return ?? "/" means if returnUrl is null, substitute "/" (home)

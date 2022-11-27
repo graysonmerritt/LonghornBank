@@ -15,6 +15,7 @@ using Team4_Final_Project.Models;
 
 namespace Team4_Final_Project.Controllers
 {
+    // controller used to manage accounts from superior accounts 
     [Authorize]
     public class ManageController : Controller
     {
@@ -155,7 +156,7 @@ namespace Team4_Final_Project.Controllers
 
 
 
-
+        // this method is called when the password only has to be entered in once
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ManageChangePasswordViewModel cpvm, String Email)
