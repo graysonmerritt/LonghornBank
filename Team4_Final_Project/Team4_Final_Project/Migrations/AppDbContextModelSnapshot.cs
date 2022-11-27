@@ -300,13 +300,20 @@ namespace Team4_Final_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisputeID"), 1L, 1);
 
-                    b.Property<string>("Comment")
+                    b.Property<string>("AdminNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("CorrectAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TransactionID")
+                    b.Property<int>("TransactionID")
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");
@@ -547,7 +554,9 @@ namespace Team4_Final_Project.Migrations
                 {
                     b.HasOne("Team4_Final_Project.Models.Transaction", "Transaction")
                         .WithMany("Disputes")
-                        .HasForeignKey("TransactionID");
+                        .HasForeignKey("TransactionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Transaction");
                 });

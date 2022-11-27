@@ -12,8 +12,8 @@ using Team4_Final_Project.DAL;
 namespace Team4_Final_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221120045828_setup5")]
-    partial class setup5
+    [Migration("20221127183855_setup")]
+    partial class setup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -186,6 +186,9 @@ namespace Team4_Final_Project.Migrations
                     b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TransferInfo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -299,13 +302,20 @@ namespace Team4_Final_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisputeID"), 1L, 1);
 
-                    b.Property<string>("Comment")
+                    b.Property<string>("AdminNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("CorrectAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TransactionID")
+                    b.Property<int>("TransactionID")
                         .HasColumnType("int");
 
                     b.HasKey("DisputeID");
@@ -350,10 +360,16 @@ namespace Team4_Final_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StockPortfolioID"), 1L, 1);
 
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("AppUserForeignKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("AvailableCash")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("Balanced")
@@ -367,6 +383,15 @@ namespace Team4_Final_Project.Migrations
 
                     b.Property<decimal>("Gain")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("HiddenAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nickname")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StockPortfolioID");
 
@@ -398,6 +423,9 @@ namespace Team4_Final_Project.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("StockPortfolioID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransactionType")
                         .HasColumnType("int");
 
                     b.HasKey("StockTransactionID");
@@ -528,7 +556,9 @@ namespace Team4_Final_Project.Migrations
                 {
                     b.HasOne("Team4_Final_Project.Models.Transaction", "Transaction")
                         .WithMany("Disputes")
-                        .HasForeignKey("TransactionID");
+                        .HasForeignKey("TransactionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Transaction");
                 });

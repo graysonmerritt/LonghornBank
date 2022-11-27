@@ -312,9 +312,11 @@ namespace Team4_Final_Project.Migrations
                 {
                     DisputeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AdminNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    TransactionID = table.Column<int>(type: "int", nullable: true)
+                    CorrectAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TransactionID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -323,7 +325,8 @@ namespace Team4_Final_Project.Migrations
                         name: "FK_Disputes_Transactions_TransactionID",
                         column: x => x.TransactionID,
                         principalTable: "Transactions",
-                        principalColumn: "TransactionID");
+                        principalColumn: "TransactionID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
