@@ -82,7 +82,7 @@ namespace Team4_Final_Project.Controllers
             {
                 return View("Error", new String[] { "Please specify a dispute to edit" });
             }
-            // include lots of info for edit page
+            // include lots of info for edit page, mainly to see account name and make things easy on admin
             Dispute dispute = _context.Disputes
                 .Include(t => t.Transaction)
                 .ThenInclude(a => a.Account)
