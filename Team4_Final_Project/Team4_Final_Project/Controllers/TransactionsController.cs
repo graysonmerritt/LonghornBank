@@ -437,5 +437,21 @@ namespace Team4_Final_Project.Controllers
         {
             return _context.Transactions.Any(e => e.TransactionID == id);
         }
+
+
+
+
+        // SEARCH LOGIC DOWN HERE
+        
+
+        public ActionResult DetailedSearch(Int32 accountID)
+        {
+            SearchViewModel svm = new SearchViewModel();
+            return View(svm);
+        }
+
+
+
+
     }
 }
