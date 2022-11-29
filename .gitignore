@@ -2,3 +2,6 @@
 *.vsidx
 *.vsidx
 *.v2
+*.json
+*.dll
+*.pdb
