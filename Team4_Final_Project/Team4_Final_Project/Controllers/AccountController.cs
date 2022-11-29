@@ -9,6 +9,7 @@ using Team4_Final_Project.DAL;
 using Team4_Final_Project.Models;
 using Team4_Final_Project.Utilities;
 
+// hello guys! welcome to mis 333k
 namespace Team4_Final_Project.Controllers
 {
     [Authorize]
