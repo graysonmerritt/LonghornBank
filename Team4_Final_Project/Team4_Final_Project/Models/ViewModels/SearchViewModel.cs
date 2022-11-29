@@ -4,6 +4,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Team4_Final_Project.Models
 {
+    public enum TransactionProperty
+    {
+        [Display(Name = "Transaction Number")] TransactionNumber,
+        [Display(Name = "Transaction Type")] TransactionType,
+        Description,
+        Amount
+    }
+
+    public enum AscendingOrDescending { Ascending, Descending}
 
     [Keyless]
     public class SearchViewModel
@@ -17,6 +26,7 @@ namespace Team4_Final_Project.Models
         public Int32 SelectedType { get; set; }
 
         //amount search for RANGE of numbers - make sure it is in dollars
+        //todo: make sure that you cant have the high amount lower than the low amount
         [Display(Name = "higher than:")]
         public Decimal? SearchAmountLow { get; set; }
 
@@ -30,10 +40,26 @@ namespace Team4_Final_Project.Models
 
         //date - RANGE
         [Display(Name = "Beginning Date:")]
+        [DataType(DataType.Date)]
         public DateTime? SearchDateBeginning { get; set; }
 
         [Display(Name = "Ending Date:")]
+        [DataType(DataType.Date)]
         public DateTime? SearchDateEnding { get; set; }
+
+
+        //todo: add sort order
+        //each row will have the same data order - transaction number, transaction type, description, and amount
+        //BUT! the order of the ROWS is what the user can choose
+
+        //drop down enum of properties to pick which to sort by
+        [Display(Name = "Which property would you like to sort by?")]
+        public Int32 SelectedProperty { get; set; }
+
+
+        //radio button of descending or ascending
+        [Display(Name = "Ascending or Descending?")]
+        public AscendingOrDescending SortOrder { get; set; }
 
 
 

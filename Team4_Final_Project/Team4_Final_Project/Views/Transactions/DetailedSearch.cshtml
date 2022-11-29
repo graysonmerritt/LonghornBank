@@ -25,19 +25,11 @@
             @*needs to become a dropdown*@
             <div class="form-group">
                 <label asp-for="SelectedType" class="control-label"></label>
-                <input asp-for="SelectedType" class="form-control" />
-                <span asp-validation-for="SelectedType" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="SelectedType" class="control-label"></label>
-                <select asp-for="SelectedType" asp-items="Html.GetEnumSelectList<Type>()" class="form-control">
+                <select asp-for="SelectedType" asp-items="Html.GetEnumSelectList<TransactionType>()" class="form-control">
                     <option selected="selected" value="">All Transaction Types</option>
                 </select>
                 <span asp-validation-for="SelectedType" class="text-danger"></span>
             </div>
-
-
 
             <br />
 
@@ -83,6 +75,29 @@
                 <label asp-for="SearchDateEnding" class="control-label"></label>
                 <input asp-for="SearchDateEnding" class="form-control" />
                 <span asp-validation-for="SearchDateEnding" class="text-danger"></span>
+            </div>
+
+            <br />
+
+
+            <b>Search Order Preferences</b>
+
+            <!--Property enum DROPDOWN-->
+            <div class="form-group">
+                <label asp-for="SelectedProperty" class="control-label"></label>
+                <select asp-for="SelectedProperty" asp-items="Html.GetEnumSelectList<TransactionProperty>()" class="form-control">
+                </select>
+                <span asp-validation-for="SelectedProperty" class="text-danger"></span>
+            </div>
+
+            <!--ascending or descending radio button-->
+            <!--what is with the search last updated DATEEEEE-->
+
+            <div class="form-group">
+                <label asp-for="SortOrder" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SortOrder" value="@AscendingOrDescending.Descending" checked="checked" /> Descending<br />
+                <input type="radio" class="radio" asp-for="SortOrder" value="@AscendingOrDescending.Ascending" /> Ascending<br />
+                <span asp-validation-for="SortOrder" class="text-danger"></span>
             </div>
 
             <br />
