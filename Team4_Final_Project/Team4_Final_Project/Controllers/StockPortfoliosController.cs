@@ -106,9 +106,7 @@ namespace Team4_Final_Project.Controllers
                 _context.Add(stockPortfolio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Deposit", new { id = stockPortfolio.StockPortfolioID });
-                _context.Add(stockPortfolio);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               
             }
             return View(stockPortfolio);
         }
