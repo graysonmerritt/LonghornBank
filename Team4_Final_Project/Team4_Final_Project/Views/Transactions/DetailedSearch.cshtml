@@ -1,0 +1,100 @@
+@model Team4_Final_Project.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "DetailedSearch";
+}
+
+<h1>Detailed Transaction Search</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DetailedSearch">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            @*DONE! easy peasy*@
+            <div class="form-group">
+                <label asp-for="SearchDescription" class="control-label"></label>
+                <input asp-for="SearchDescription" class="form-control" />
+                <span asp-validation-for="SearchDescription" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            @*needs to become a dropdown*@
+            <div class="form-group">
+                <label asp-for="SelectedType" class="control-label"></label>
+                <input asp-for="SelectedType" class="form-control" />
+                <span asp-validation-for="SelectedType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SelectedType" class="control-label"></label>
+                <select asp-for="SelectedType" asp-items="Html.GetEnumSelectList<Type>()" class="form-control">
+                    <option selected="selected" value="">All Transaction Types</option>
+                </select>
+                <span asp-validation-for="SelectedType" class="text-danger"></span>
+            </div>
+
+
+
+            <br />
+
+
+            <!-- even though this is a number it should act as a string so this is done-->
+            <div class="form-group">
+                <label asp-for="SearchNumber" class="control-label"></label>
+                <input asp-for="SearchNumber" class="form-control" />
+                <span asp-validation-for="SearchNumber" class="text-danger"></span>
+            </div>
+
+
+            <!--must fix the way this is read on the view.. amounts are numbers. step is a penny-->
+            <b>Search for a Transaction with an amount:</b>
+            <div class="form-group">
+                <label asp-for="SearchAmountLow" class="control-label"></label>
+                <input asp-for="SearchAmountLow" type="number" step="0.01" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchAmountHigh" class="control-label"></label>
+                <input asp-for="SearchAmountHigh" type="number" step="0.01" class="form-control" />
+            </div>
+
+            <br />
+
+
+
+
+            <br />
+
+            <!-- dates! this part is easy because it is a date in the view model-->
+            <b>Search for a Transaction between dates:</b>
+            <div class="form-group">
+                <label asp-for="SearchDateBeginning" class="control-label"></label>
+                <input asp-for="SearchDateBeginning" class="form-control" />
+                <span asp-validation-for="SearchDateBeginning" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchDateEnding" class="control-label"></label>
+                <input asp-for="SearchDateEnding" class="form-control" />
+                <span asp-validation-for="SearchDateEnding" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

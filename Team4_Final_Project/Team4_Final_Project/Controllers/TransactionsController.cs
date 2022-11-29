@@ -37,6 +37,15 @@ namespace Team4_Final_Project.Controllers
             return View(transactions);
         }
 
+
+        //show the link for detailed search
+        public IActionResult DetailedSearch()
+        {
+            return View();
+        }
+
+
+
         // just fill up list with all transactions
         public IActionResult ShowAll()
         {

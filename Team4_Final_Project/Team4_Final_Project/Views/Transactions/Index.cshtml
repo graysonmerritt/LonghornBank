@@ -10,11 +10,13 @@
 {
     <a asp-action="ShowPending"> Show Pending </a>
     <a asp-action="ShowAll">| Show All </a>
+    
 }
 <p>
     <a asp-action="Withdrawal">Withdrawal</a>
     <a asp-action="Deposit">Deposit</a>
     <a asp-action="Transfer">Transfer</a>
+    <a asp-action="DetailedSearch"> Detailed Search </a>
 </p>
 
 @*<p> Displaying @ViewBag.SelectedRepositories out of @ViewBag.AllRepositories Repositories</p>*@
@@ -47,35 +49,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DistributionStatus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistributionStatus)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
