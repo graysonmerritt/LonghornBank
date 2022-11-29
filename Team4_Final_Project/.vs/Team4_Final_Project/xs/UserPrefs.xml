@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{D4D3CF56-18D7-41BC-9985-FE19F82DAEA2}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Team4_Final_Project/Views/Accounts/Index.cshtml">
+    <Files>
+      <File FileName="Team4_Final_Project/Models/StockPortfolio.cs" Line="1" Column="1" />
+      <File FileName="Team4_Final_Project/Controllers/StockPortfoliosController.cs" Line="1" Column="1" />
+      <File FileName="Team4_Final_Project/Views/StockPortfolios/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Team4_Final_Project/Views/Accounts/Index.cshtml" Line="11" Column="39" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Team4_Final_Project" expanded="True">
+            <Node name="Team4_Final_Project" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Accounts" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="StockPortfolios" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Team4__Final__Project PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+</Properties>

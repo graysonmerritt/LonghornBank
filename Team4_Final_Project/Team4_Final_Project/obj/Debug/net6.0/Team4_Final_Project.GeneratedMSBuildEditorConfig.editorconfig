@@ -8,229 +8,229 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Team4_Final_Project
 build_property.RootNamespace = Team4_Final_Project
-build_property.ProjectDir = C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project\
+build_property.ProjectDir = /Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\grays\Documents\GitHub\LonghornBank\Team4_Final_Project\Team4_Final_Project
+build_property.MSBuildProjectDirectory = /Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Confirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ29uZmlybS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9DaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Deposit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGVwb3NpdC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGV0YWlscy5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRWRpdC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvQ29uZmlybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcSW5kZXguY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/ChangePassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvRGVwb3NpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Accounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudHMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Confirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcQ29uZmlybS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvQ29uZmlybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcQ3JlYXRlLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcRGVsZXRlLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcRGV0YWlscy5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/DoneConfirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcRG9uZUNvbmZpcm0uY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/DoneConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvRG9uZUNvbmZpcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcRWRpdC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcHV0ZXNcSW5kZXguY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Disputes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGlzcHV0ZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ChangePassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXENoYW5nZVBhc3N3b3JkLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFuYWdlL0NoYW5nZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/EditUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEVkaXRVc2VyLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFuYWdlL0VkaXRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEluZGV4LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFuYWdlL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ManageAllCustomers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXE1hbmFnZUFsbEN1c3RvbWVycy5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ManageAllCustomers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFuYWdlL01hbmFnZUFsbEN1c3RvbWVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ManageAllEmployees.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXE1hbmFnZUFsbEVtcGxveWVlcy5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Manage/ManageAllEmployees.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFuYWdlL01hbmFnZUFsbEVtcGxveWVlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUFkbWluXENyZWF0ZS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZUFkbWluL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUFkbWluXEVkaXQuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZUFkbWluL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUFkbWluXEluZGV4LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/RoleAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZUFkbWluL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Seed/Confirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VlZFxDb25maXJtLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Seed/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VlZC9Db25maXJtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Seed/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VlZFxJbmRleC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Seed/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VlZC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Confirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXENvbmZpcm0uY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0NvbmZpcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXENyZWF0ZS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXERlbGV0ZS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXERldGFpbHMuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXEVkaXQuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tQb3J0Zm9saW9zXEluZGV4LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockPortfolios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tQb3J0Zm9saW9zL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tUeXBlc1xDcmVhdGUuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tUeXBlcy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tUeXBlc1xEZWxldGUuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tUeXBlcy9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tUeXBlc1xEZXRhaWxzLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tUeXBlcy9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tUeXBlc1xFZGl0LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tUeXBlcy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tUeXBlc1xJbmRleC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/StockTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2tUeXBlcy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Confirm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXENvbmZpcm0uY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0NvbmZpcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlbGV0ZS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Deposit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlcG9zaXQuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0RlcG9zaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERldGFpbHMuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEVkaXQuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/FixIRA.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEZpeElSQS5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/FixIRA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0ZpeElSQS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEluZGV4LmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Transfer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFRyYW5zZmVyLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Transfer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL1RyYW5zZmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Withdrawal.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFdpdGhkcmF3YWwuY3NodG1s
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/Transactions/Withdrawal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNhY3Rpb25zL1dpdGhkcmF3YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/grays/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/carsondendulk/Documents/GitHub/LonghornBank/Team4_Final_Project/Team4_Final_Project/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
