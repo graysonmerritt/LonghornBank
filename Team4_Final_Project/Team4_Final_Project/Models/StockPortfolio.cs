@@ -11,14 +11,12 @@ namespace Team4_Final_Project.Models
         public Int64 AccountNumber { get; set; }
         // Thought I could handel logic here, but 0 is the default account number
         // maybe come back and check if this can be done here instead of controller??
-        //TODO: Ask how to handle this
         public String HiddenAccountNumber
         {
 
             get; set;
         }
         public String Nickname { get; set; }
-        // TODO: may have to remigrate
         public Decimal Balance { get; set; }
         public bool Balanced { get; set; }
 

@@ -7,9 +7,7 @@ namespace Team4_Final_Project.Seeding
     {
         public static async Task AddAllRoles(RoleManager<IdentityRole> roleManager)
         {
-            //TODO: Add the needed roles - admin and customer are provided
-            //as examples
-            //if the admin role doesn't exist, add it
+            
             if (await roleManager.RoleExistsAsync("Admin") == false)
             {
                 //this code uses the role manager object to create the admin role

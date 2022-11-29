@@ -58,7 +58,6 @@ namespace Team4_Final_Project.Utilities
                 //email and user name do not change
                 dbUser.PhoneNumber = aum.User.PhoneNumber;
 
-                //TODO: Update any fields that you added to appuser
                 //FirstName is included as an example
                 dbUser.FirstName = aum.User.FirstName;
                 dbUser.MiddleInitial = aum.User.MiddleInitial;

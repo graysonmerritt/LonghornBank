@@ -19,8 +19,7 @@ namespace Team4_Final_Project.Utilities
             String strPassword = "Password123";
 
             //This is the name of the business from which you are sending
-            //TODO: Change this to the name of the company you are creating the website for
-            String strCompanyName = "MIS 333K Final Project";
+            String strCompanyName = "Longhorn Bank and Trust";
             
             
             //Create an email client to send the emails

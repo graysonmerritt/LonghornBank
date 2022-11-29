@@ -104,7 +104,7 @@ namespace Team4_Final_Project.Controllers
                 return View("Deposit", account);
 
             }
-            // TODO: HANDLE ADMIN MAKING THESE COMPLETED
+            // TODO: logic is here to fix it for edit, just don't have admin home page done
             if (account.Balance >= 5000)
             {
                 transaction.Status = TransactionStatus.Pending;

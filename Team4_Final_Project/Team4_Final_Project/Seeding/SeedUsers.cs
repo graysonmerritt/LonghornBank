@@ -24,7 +24,7 @@ namespace Team4_Final_Project.Seeding
                     Email = "admin@example.com",
                     PhoneNumber = "(512)555-1234",
 
-                    //TODO: Add additional fields that you created on the AppUser class
+                   
                     //FirstName is included as an example
                     FirstName = "Admin",
                     LastName = "Example",
@@ -54,7 +54,7 @@ namespace Team4_Final_Project.Seeding
                     Email = "employee@example.com",
                     PhoneNumber = "(512)555-1234",
 
-                    //TODO: Add additional fields that you created on the AppUser class
+                   
                     //FirstName is included as an example
                     FirstName = "Enployee",
                     LastName = "Example",

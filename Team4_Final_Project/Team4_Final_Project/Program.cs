@@ -67,8 +67,7 @@ app.UseStaticFiles();
 //is made for a URL.
 app.UseRouting();
 
-//TODO: (HW4 & Beyond) Once you have added Identity into your project, you will 
-//need to uncomment these lines
+
 app.UseAuthentication();
 app.UseAuthorization();
 
