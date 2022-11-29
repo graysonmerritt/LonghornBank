@@ -297,6 +297,8 @@ namespace Team4_Final_Project.Controllers
                 FromTransaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
                 FromTransaction.Status = TransactionStatus.Completed;
                 FromTransaction.Date = tvm.Date;
+                FromTransaction.DistributionStatus = DistributionStatus.NA;
+
             }
             // create to transaction now
             ToAccount.Balance += tvm.Amount;
@@ -307,6 +309,8 @@ namespace Team4_Final_Project.Controllers
             ToTransaction.Number = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber(_context);
             ToTransaction.Status = TransactionStatus.Completed;
             ToTransaction.Date = tvm.Date;
+            ToTransaction.DistributionStatus = DistributionStatus.NA;
+
 
             if (ModelState.IsValid)
             {
